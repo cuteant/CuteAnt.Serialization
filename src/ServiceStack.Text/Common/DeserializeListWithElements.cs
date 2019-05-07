@@ -168,7 +168,7 @@ namespace ServiceStack.Text.Common
                 : ActivatorUtils.FastCreateInstance<ICollection<T>>(createListType);
 
             var objSerializer = Json.JsonTypeSerializer.Instance.ObjectDeserializer;
-            if (to is List<object> && objSerializer != null)
+            if (to is List<object> && objSerializer != null && typeof(TSerializer) == typeof(Json.JsonTypeSerializer))
                 return (ICollection<T>)objSerializer(value);
 
             if ((value = DeserializeListWithElements<TSerializer>.StripList(value)).IsEmpty)

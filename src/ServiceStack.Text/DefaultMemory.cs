@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using CuteAnt.Buffers;
+using CuteAnt.IO;
 using ServiceStack.Text.Common;
 using ServiceStack.Text.Json;
 using ServiceStack.Text.Pools;
@@ -565,6 +566,9 @@ namespace ServiceStack.Text
 
         public override string FromUtf8Bytes(ReadOnlySpan<byte> source) => Encoding.UTF8.GetString(source.ToArray());
 
+        public override MemoryStream ToMemoryStream(ReadOnlySpan<byte> source) =>
+            MemoryStreamManager.GetStream(source.ToArray());
+
         private static Guid ParseGeneralStyleGuid(ReadOnlySpan<char> value, out int len)
         {
             var buf = value;
@@ -572,7 +576,7 @@ namespace ServiceStack.Text
 
             int dash = 0;
             len = 32;
-            bool hasParentesis = false;
+            bool hasParenthesis = false;
 
             if (value.Length < len)
                 throw new FormatException(BadFormat);
@@ -582,7 +586,7 @@ namespace ServiceStack.Text
             {
                 n++;
                 len += 2;
-                hasParentesis = true;
+                hasParenthesis = true;
 
                 if (buf[8 + n] != '-')
                     throw new FormatException(BadFormat);
@@ -602,7 +606,7 @@ namespace ServiceStack.Text
             if (value.Length < len)
                 throw new FormatException(BadFormat);
 
-            if (hasParentesis)
+            if (hasParenthesis)
             {
                 var ce = buf[len - 1];
 

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using CuteAnt.Buffers;
+using CuteAnt.IO;
 using ServiceStack.Text;
 using ServiceStack.Text.Common;
 using ServiceStack.Text.Pools;
@@ -193,6 +194,13 @@ namespace ServiceStack.Memory
         public override byte[] ToUtf8Bytes(ReadOnlySpan<char> source) => ToUtf8(source).ToArray();
 
         public override string FromUtf8Bytes(ReadOnlySpan<byte> source) => FromUtf8(source).ToString();
+
+        public override MemoryStream ToMemoryStream(ReadOnlySpan<byte> source)
+        {
+            var ms = MemoryStreamManager.GetStream(source.Length);
+            ms.Write(source);
+            return ms;
+        }
     }    
 }
 
