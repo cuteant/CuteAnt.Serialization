@@ -89,6 +89,8 @@ namespace ServiceStack.Text.Json
         {
             TypeConfig<T>.Init();
 
+            value = value.WithoutBom();
+
             if (ReadFn == null)
             {
                 if (typeof(T).IsAbstract || typeof(T).IsInterface)

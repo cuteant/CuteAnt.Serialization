@@ -45,6 +45,12 @@ namespace ServiceStack
             JsConfig.InitStatics();
             AutoMappingUtils.ignoreMappings[Tuple.Create(fromType, toType)] = true;
         }
+
+        public static void RegisterPopulator<Target, Source>(Action<Target, Source> populator)
+        {
+            JsConfig.InitStatics();
+            AutoMappingUtils.populators[Tuple.Create(typeof(Target), typeof(Source))] = (a, b) => populator((Target)a, (Source)b);
+        }
     }
 
     public static class AutoMappingUtils
@@ -52,18 +58,19 @@ namespace ServiceStack
         internal static readonly ConcurrentDictionary<Tuple<Type, Type>, MemberGetter> converters
             = new ConcurrentDictionary<Tuple<Type, Type>, MemberGetter>();
 
+        internal static readonly ConcurrentDictionary<Tuple<Type, Type>, PopulateMemberDelegate> populators
+            = new ConcurrentDictionary<Tuple<Type, Type>, PopulateMemberDelegate>();
+
         internal static readonly ConcurrentDictionary<Tuple<Type, Type>, bool> ignoreMappings
             = new ConcurrentDictionary<Tuple<Type, Type>, bool>();
 
         public static void Reset()
         {
             converters.Clear();
+            populators.Clear();
             ignoreMappings.Clear();
             AssignmentDefinitionCache.Clear();
         }
-
-        [Obsolete("Use AutoMapping.RegisterConverter")]
-        public static void RegisterConverter<From, To>(Func<From, To> converter) => throw new NotSupportedException("Deprecated: Use AutoMapping.RegisterConverter");
 
         public static bool ShouldIgnoreMapping(Type fromType, Type toType) =>
             ignoreMappings.ContainsKey(Tuple.Create(fromType, toType));
@@ -76,6 +83,17 @@ namespace ServiceStack
             var key = Tuple.Create(fromType, toType);
             return converters.TryGetValue(key, out var converter)
                 ? converter
+                : null;
+        }
+
+        public static PopulateMemberDelegate GetPopulator(Type targetType, Type sourceType)
+        {
+            if (populators.IsEmpty)
+                return null;
+
+            var key = Tuple.Create(targetType, sourceType);
+            return populators.TryGetValue(key, out var populator)
+                ? populator
                 : null;
         }
 
@@ -1189,11 +1207,16 @@ namespace ServiceStack
                         ToType.FullName, toType.Name, ex);
                 }
             }
+
+            var populator = AutoMappingUtils.GetPopulator(to.GetType(), from.GetType());
+            populator?.Invoke(to, from);
         }
     }
 
     //public delegate object MemberGetter(object instance);
     //public delegate object MemberGetter<T>(T instance);
+
+    public delegate void PopulateMemberDelegate(object target, object source);
 
     //public delegate void MemberSetter(object instance, object value);
     //public delegate void MemberSetter<T>(T instance, object value);

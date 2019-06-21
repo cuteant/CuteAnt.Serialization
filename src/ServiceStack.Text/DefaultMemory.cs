@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using CuteAnt.Buffers;
-using CuteAnt.IO;
 using ServiceStack.Text.Common;
 using ServiceStack.Text.Json;
 using ServiceStack.Text.Pools;
@@ -500,7 +499,7 @@ namespace ServiceStack.Text
             try
             {
                 var charsWritten = Encoding.UTF8.GetChars(bytes, 0, (int) ms.Length, utf8, 0);
-                var ret = deserializer(type, new ReadOnlySpan<char>(utf8, 0, charsWritten));
+                var ret = deserializer(type, new ReadOnlySpan<char>(utf8, 0, charsWritten).WithoutBom());
                 return ret;
             }
             finally
@@ -538,9 +537,9 @@ namespace ServiceStack.Text
 
         public override ReadOnlyMemory<char> FromUtf8(ReadOnlySpan<byte> source)
         {
-            var bytes = source.ToArray();
+            var bytes = source.WithoutBom().ToArray();
             var chars = new char[Encoding.UTF8.GetCharCount(bytes)];
-            var charsWritten = Encoding.UTF8.GetChars(bytes, 0, source.Length, chars, 0);
+            var charsWritten = Encoding.UTF8.GetChars(bytes, 0, bytes.Length, chars, 0);
             return new ReadOnlyMemory<char>(chars, 0, charsWritten);
         }
 
@@ -555,19 +554,19 @@ namespace ServiceStack.Text
 
         public override int FromUtf8(ReadOnlySpan<byte> source, Span<char> destination)
         {
-            var bytes = source.ToArray();
+            var bytes = source.WithoutBom().ToArray();
             var chars = destination.ToArray();
-            var charsWritten = Encoding.UTF8.GetChars(bytes, 0, source.Length, chars, 0);
+            var charsWritten = Encoding.UTF8.GetChars(bytes, 0, bytes.Length, chars, 0);
             new ReadOnlySpan<char>(chars, 0, charsWritten).CopyTo(destination);
             return charsWritten;
         }
 
         public override byte[] ToUtf8Bytes(ReadOnlySpan<char> source) => Encoding.UTF8.GetBytes(source.ToArray());
 
-        public override string FromUtf8Bytes(ReadOnlySpan<byte> source) => Encoding.UTF8.GetString(source.ToArray());
+        public override string FromUtf8Bytes(ReadOnlySpan<byte> source) => Encoding.UTF8.GetString(source.WithoutBom().ToArray());
 
         public override MemoryStream ToMemoryStream(ReadOnlySpan<byte> source) =>
-            MemoryStreamManager.GetStream(source.ToArray());
+            CuteAnt.IO.MemoryStreamManager.GetStream(source.ToArray());
 
         private static Guid ParseGeneralStyleGuid(ReadOnlySpan<char> value, out int len)
         {
