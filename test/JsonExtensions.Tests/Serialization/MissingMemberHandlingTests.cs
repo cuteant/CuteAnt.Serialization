@@ -27,6 +27,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Tests.TestObjects;
 #if DNXCORE50
 using Xunit;
@@ -155,6 +156,20 @@ namespace JsonExtensions.Tests.Serialization
             });
         }
 
+        [Test]
+        public void MissingErrorAttribute()
+        {
+            string json = @"{""Missing"":1}";
+
+            ExceptionAssert.Throws<JsonSerializationException>(() => { JsonConvertX.DeserializeObject<NameWithMissingError>(json); }, "Could not find member 'Missing' on object of type 'NameWithMissingError'. Path 'Missing', line 1, position 11.");
+        }
+
+        [JsonObject(MissingMemberHandling = MissingMemberHandling.Error)]
+        public class NameWithMissingError
+        {
+            public string First { get; set; }
+        }
+
         public class Name
         {
             public string First { get; set; }
@@ -215,6 +230,47 @@ namespace JsonExtensions.Tests.Serialization
 
             Assert.AreEqual(1, errors.Count);
             Assert.AreEqual("Could not find member 'firstERROR' on object of type 'Name'. Path 'name.firstERROR', line 1, position 20.", errors[0]);
+        }
+
+        [JsonObject(MissingMemberHandling = MissingMemberHandling.Ignore)]
+        public class SimpleExtendableObject
+        {
+            [JsonExtensionData]
+            public IDictionary<string, object> Data { get; } = new Dictionary<string, object>();
+        }
+
+        public class ObjectWithExtendableChild
+        {
+            public SimpleExtendableObject Data;
+        }
+
+        [Test]
+        public void TestMissingMemberHandlingForDirectObjects()
+        {
+            string json = @"{""extensionData1"": [1,2,3]}";
+            SimpleExtendableObject e2 = JsonConvertX.DeserializeObject<SimpleExtendableObject>(json, new JsonSerializerSettings { MissingMemberHandling = MissingMemberHandling.Error });
+            JArray o1 = (JArray)e2.Data["extensionData1"];
+            Assert.AreEqual(JTokenType.Array, o1.Type);
+        }
+
+        [Test]
+        public void TestMissingMemberHandlingForChildObjects()
+        {
+            string json = @"{""Data"":{""extensionData1"": [1,2,3]}}";
+            ObjectWithExtendableChild e3 = JsonConvertX.DeserializeObject<ObjectWithExtendableChild>(json, new JsonSerializerSettings { MissingMemberHandling = MissingMemberHandling.Error });
+            JArray o1 = (JArray)e3.Data.Data["extensionData1"];
+            Assert.AreEqual(JTokenType.Array, o1.Type);
+        }
+
+        [Test]
+        public void TestMissingMemberHandlingForChildObjectsWithInvalidData()
+        {
+            string json = @"{""InvalidData"":{""extensionData1"": [1,2,3]}}";
+
+            ExceptionAssert.Throws<JsonSerializationException>(() =>
+            {
+                JsonConvertX.DeserializeObject<ObjectWithExtendableChild>(json, new JsonSerializerSettings { MissingMemberHandling = MissingMemberHandling.Error });
+            }, "Could not find member 'InvalidData' on object of type 'ObjectWithExtendableChild'. Path 'InvalidData', line 1, position 15.");
         }
     }
 }

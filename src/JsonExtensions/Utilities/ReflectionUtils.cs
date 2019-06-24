@@ -190,10 +190,6 @@ namespace JsonExtensions.Utilities
                 switch (current)
                 {
                     case '[':
-                        writingAssemblyName = false;
-                        skippingAssemblyDetails = false;
-                        builder.Append(current);
-                        break;
                     case ']':
                         writingAssemblyName = false;
                         skippingAssemblyDetails = false;
