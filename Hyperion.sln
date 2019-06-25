@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1F97D5A4-285F-4962-8F8C-BCEF8278143B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EA7DA5A5-A451-4637-8D7F-E54727C68BD3}"
+	ProjectSection(SolutionItems) = preProject
+		Clean.cmd = Clean.cmd
+		NuGet.Config = NuGet.Config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{4744CD6C-82C3-4D38-A708-3D301A74397F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hyperion", "src\Hyperion\Hyperion.csproj", "{EDFF77FB-9D0A-4AC4-8F49-65410D916889}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CuteAnt.Extensions.Reflection.Sources", "..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Reflection.Sources\CuteAnt.Extensions.Reflection.Sources.shproj", "{C7F8DBE6-77B7-494D-AF00-018F7579548C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{655BBC74-0383-41E7-95E3-0EB324C8F288}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hyperion.Tests", "test\Hyperion.Tests\Hyperion.Tests.csproj", "{EC67F4FA-5DB7-4B9E-B4A8-1D06D0EAB3A4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hyperion.Tests.Net40", "test\Hyperion.Tests.Net40\Hyperion.Tests.Net40.csproj", "{A2EA6312-3363-401B-AF07-F53E20ADCB1D}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Reflection.Sources\CuteAnt.Extensions.Reflection.Sources.projitems*{c7f8dbe6-77b7-494d-af00-018f7579548c}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDFF77FB-9D0A-4AC4-8F49-65410D916889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDFF77FB-9D0A-4AC4-8F49-65410D916889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDFF77FB-9D0A-4AC4-8F49-65410D916889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDFF77FB-9D0A-4AC4-8F49-65410D916889}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC67F4FA-5DB7-4B9E-B4A8-1D06D0EAB3A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC67F4FA-5DB7-4B9E-B4A8-1D06D0EAB3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC67F4FA-5DB7-4B9E-B4A8-1D06D0EAB3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC67F4FA-5DB7-4B9E-B4A8-1D06D0EAB3A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2EA6312-3363-401B-AF07-F53E20ADCB1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2EA6312-3363-401B-AF07-F53E20ADCB1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2EA6312-3363-401B-AF07-F53E20ADCB1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2EA6312-3363-401B-AF07-F53E20ADCB1D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EDFF77FB-9D0A-4AC4-8F49-65410D916889} = {1F97D5A4-285F-4962-8F8C-BCEF8278143B}
+		{C7F8DBE6-77B7-494D-AF00-018F7579548C} = {4744CD6C-82C3-4D38-A708-3D301A74397F}
+		{EC67F4FA-5DB7-4B9E-B4A8-1D06D0EAB3A4} = {655BBC74-0383-41E7-95E3-0EB324C8F288}
+		{A2EA6312-3363-401B-AF07-F53E20ADCB1D} = {655BBC74-0383-41E7-95E3-0EB324C8F288}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93230366-D5C3-4397-83D3-ED46E43B8121}
+	EndGlobalSection
+EndGlobal

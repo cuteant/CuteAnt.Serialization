@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1F97D5A4-285F-4962-8F8C-BCEF8278143B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EA7DA5A5-A451-4637-8D7F-E54727C68BD3}"
+	ProjectSection(SolutionItems) = preProject
+		Clean.cmd = Clean.cmd
+		NuGet.Config = NuGet.Config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{4744CD6C-82C3-4D38-A708-3D301A74397F}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CuteAnt.Extensions.Logging.Sources", "..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.shproj", "{8DBB7DC8-2B90-4A8C-A60D-D41466174BDE}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CuteAnt.Extensions.Reflection.Sources", "..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Reflection.Sources\CuteAnt.Extensions.Reflection.Sources.shproj", "{C7F8DBE6-77B7-494D-AF00-018F7579548C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{655BBC74-0383-41E7-95E3-0EB324C8F288}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utf8Json.Abstractions", "src\Utf8Json.Abstractions\Utf8Json.Abstractions.csproj", "{4BC4D803-1BDB-400F-B807-A3CE17705ACB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utf8Json", "src\Utf8Json\Utf8Json.csproj", "{B523500E-6A5B-45FC-B1FE-0678FC73AD24}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utf8Json.ImmutableCollection", "src\Utf8Json.ImmutableCollection\Utf8Json.ImmutableCollection.csproj", "{7F16DF42-7E49-468B-9728-6E962E332C1C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utf8Json.Tests", "test\Utf8Json.Tests\Utf8Json.Tests.csproj", "{3BA49501-EA2F-45A3-95BE-A313E2AF206F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utf8Json.Tests.Net40", "test\Utf8Json.Tests.Net40\Utf8Json.Tests.Net40.csproj", "{D7E7079C-38FE-4ABF-B824-F8C25316DF21}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.projitems*{8dbb7dc8-2b90-4a8c-a60d-d41466174bde}*SharedItemsImports = 13
+		..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Reflection.Sources\CuteAnt.Extensions.Reflection.Sources.projitems*{c7f8dbe6-77b7-494d-af00-018f7579548c}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BC4D803-1BDB-400F-B807-A3CE17705ACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BC4D803-1BDB-400F-B807-A3CE17705ACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BC4D803-1BDB-400F-B807-A3CE17705ACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BC4D803-1BDB-400F-B807-A3CE17705ACB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B523500E-6A5B-45FC-B1FE-0678FC73AD24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B523500E-6A5B-45FC-B1FE-0678FC73AD24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B523500E-6A5B-45FC-B1FE-0678FC73AD24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B523500E-6A5B-45FC-B1FE-0678FC73AD24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F16DF42-7E49-468B-9728-6E962E332C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F16DF42-7E49-468B-9728-6E962E332C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F16DF42-7E49-468B-9728-6E962E332C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F16DF42-7E49-468B-9728-6E962E332C1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BA49501-EA2F-45A3-95BE-A313E2AF206F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BA49501-EA2F-45A3-95BE-A313E2AF206F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BA49501-EA2F-45A3-95BE-A313E2AF206F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BA49501-EA2F-45A3-95BE-A313E2AF206F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7E7079C-38FE-4ABF-B824-F8C25316DF21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7E7079C-38FE-4ABF-B824-F8C25316DF21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7E7079C-38FE-4ABF-B824-F8C25316DF21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7E7079C-38FE-4ABF-B824-F8C25316DF21}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8DBB7DC8-2B90-4A8C-A60D-D41466174BDE} = {4744CD6C-82C3-4D38-A708-3D301A74397F}
+		{C7F8DBE6-77B7-494D-AF00-018F7579548C} = {4744CD6C-82C3-4D38-A708-3D301A74397F}
+		{4BC4D803-1BDB-400F-B807-A3CE17705ACB} = {1F97D5A4-285F-4962-8F8C-BCEF8278143B}
+		{B523500E-6A5B-45FC-B1FE-0678FC73AD24} = {1F97D5A4-285F-4962-8F8C-BCEF8278143B}
+		{7F16DF42-7E49-468B-9728-6E962E332C1C} = {1F97D5A4-285F-4962-8F8C-BCEF8278143B}
+		{3BA49501-EA2F-45A3-95BE-A313E2AF206F} = {655BBC74-0383-41E7-95E3-0EB324C8F288}
+		{D7E7079C-38FE-4ABF-B824-F8C25316DF21} = {655BBC74-0383-41E7-95E3-0EB324C8F288}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93230366-D5C3-4397-83D3-ED46E43B8121}
+	EndGlobalSection
+EndGlobal

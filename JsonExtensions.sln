@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1F97D5A4-285F-4962-8F8C-BCEF8278143B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EA7DA5A5-A451-4637-8D7F-E54727C68BD3}"
+	ProjectSection(SolutionItems) = preProject
+		Clean.cmd = Clean.cmd
+		NuGet.Config = NuGet.Config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{4744CD6C-82C3-4D38-A708-3D301A74397F}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CuteAnt.Extensions.Logging.Sources", "..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.shproj", "{8DBB7DC8-2B90-4A8C-A60D-D41466174BDE}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CuteAnt.Extensions.StreamReaderAndWriter.Sources", "..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.StreamReaderAndWriter.Sources\CuteAnt.Extensions.StreamReaderAndWriter.Sources.shproj", "{1AB88764-60ED-44F3-9E98-08391B5F5CDB}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CuteAnt.Extensions.Reflection.Sources", "..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Reflection.Sources\CuteAnt.Extensions.Reflection.Sources.shproj", "{C7F8DBE6-77B7-494D-AF00-018F7579548C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonExtensions", "src\JsonExtensions\JsonExtensions.csproj", "{C0A08433-235E-4395-9471-D0D8FF958A3A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{655BBC74-0383-41E7-95E3-0EB324C8F288}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonExtensions.Tests", "test\JsonExtensions.Tests\JsonExtensions.Tests.csproj", "{BD9BCE0F-18CE-47F0-A223-768CEA50B9E3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonExtensions.Tests.Net40", "test\JsonExtensions.Tests.Net40\JsonExtensions.Tests.Net40.csproj", "{77F0FA3C-2E5C-4D48-8B9D-DAC3E464B4C9}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.StreamReaderAndWriter.Sources\CuteAnt.Extensions.StreamReaderAndWriter.Sources.projitems*{1ab88764-60ed-44f3-9e98-08391b5f5cdb}*SharedItemsImports = 13
+		..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.projitems*{8dbb7dc8-2b90-4a8c-a60d-d41466174bde}*SharedItemsImports = 13
+		..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Reflection.Sources\CuteAnt.Extensions.Reflection.Sources.projitems*{c7f8dbe6-77b7-494d-af00-018f7579548c}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0A08433-235E-4395-9471-D0D8FF958A3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0A08433-235E-4395-9471-D0D8FF958A3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0A08433-235E-4395-9471-D0D8FF958A3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0A08433-235E-4395-9471-D0D8FF958A3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD9BCE0F-18CE-47F0-A223-768CEA50B9E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD9BCE0F-18CE-47F0-A223-768CEA50B9E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD9BCE0F-18CE-47F0-A223-768CEA50B9E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD9BCE0F-18CE-47F0-A223-768CEA50B9E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77F0FA3C-2E5C-4D48-8B9D-DAC3E464B4C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77F0FA3C-2E5C-4D48-8B9D-DAC3E464B4C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77F0FA3C-2E5C-4D48-8B9D-DAC3E464B4C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77F0FA3C-2E5C-4D48-8B9D-DAC3E464B4C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8DBB7DC8-2B90-4A8C-A60D-D41466174BDE} = {4744CD6C-82C3-4D38-A708-3D301A74397F}
+		{1AB88764-60ED-44F3-9E98-08391B5F5CDB} = {4744CD6C-82C3-4D38-A708-3D301A74397F}
+		{C7F8DBE6-77B7-494D-AF00-018F7579548C} = {4744CD6C-82C3-4D38-A708-3D301A74397F}
+		{C0A08433-235E-4395-9471-D0D8FF958A3A} = {1F97D5A4-285F-4962-8F8C-BCEF8278143B}
+		{BD9BCE0F-18CE-47F0-A223-768CEA50B9E3} = {655BBC74-0383-41E7-95E3-0EB324C8F288}
+		{77F0FA3C-2E5C-4D48-8B9D-DAC3E464B4C9} = {655BBC74-0383-41E7-95E3-0EB324C8F288}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93230366-D5C3-4397-83D3-ED46E43B8121}
+	EndGlobalSection
+EndGlobal
