@@ -8,6 +8,9 @@ using CuteAnt.Pool;
 using JsonExtensions.Utilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+#if !NET40
+using SpanJson.Formatters.Dynamic;
+#endif
 
 namespace JsonExtensions
 {
@@ -134,15 +137,58 @@ namespace JsonExtensions
         {
             if (null == objectType) { ThrowHelper.ThrowArgumentNullException(ExceptionArgument.objectType); }
 
-            if (value is CombGuid comb)
+            JToken token = null;
+            object result;
+            switch (value)
             {
-                if (TryConvert(comb, objectType, out object result))
-                {
-                    return result;
-                }
-                value = comb.ToString();
+                case CombGuid comb:
+                    if (TryConvert(comb, objectType, out result))
+                    {
+                        return result;
+                    }
+                    value = comb.ToString();
+                    break;
+
+#if !NET40
+                case SpanJsonDynamicUtf16String utf16String:
+                    if (SpanJsonDynamicUtf16String.DynamicConverter.TryConvertTo(objectType, utf16String.Symbols, out result))
+                    {
+                        return result;
+                    }
+                    value = utf16String.ToString();
+                    break;
+
+                case SpanJsonDynamicUtf8String utf8String:
+                    if (SpanJsonDynamicUtf8String.DynamicConverter.TryConvertTo(objectType, utf8String.Symbols, out result))
+                    {
+                        return result;
+                    }
+                    value = utf8String.ToString();
+                    break;
+
+                case SpanJsonDynamicUtf16Number utf16Num:
+                    if (SpanJsonDynamicUtf16Number.DynamicConverter.TryConvertTo(objectType, utf16Num.Symbols, out result))
+                    {
+                        return result;
+                    }
+                    value = utf16Num.ToString();
+                    break;
+
+                case SpanJsonDynamicUtf8Number utf8Num:
+                    if (SpanJsonDynamicUtf8Number.DynamicConverter.TryConvertTo(objectType, utf8Num.Symbols, out result))
+                    {
+                        return result;
+                    }
+                    value = utf8Num.ToString();
+                    break;
+#endif
+
+                case JToken jt:
+                    token = jt;
+                    break;
             }
-            var token = value as JToken ?? new JValue(value);
+            if (null == token) { token = new JValue(value); }
+
             if (token.Type == JTokenType.Null && allowNull) { return null; }
 
             var typeCode = ConvertUtils.GetTypeCode(objectType, out bool isEnum);
