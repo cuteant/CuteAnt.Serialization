@@ -5,7 +5,7 @@
   <Import Project="..\..\..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.StreamReaderAndWriter.Sources\CuteAnt.Extensions.StreamReaderAndWriter.Sources.projitems" Label="Shared" />
 
   <PropertyGroup>
-    <TargetFrameworks>net471;net451;netstandard2.0;netcoreapp2.2</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.0;netcoreapp2.1;netstandard2.1;netstandard2.0;net471;net451</TargetFrameworks>
     <RootNamespace>ServiceStack.Text</RootNamespace>
     <AssemblyName>ServiceStack.Text</AssemblyName>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
@@ -27,8 +27,12 @@
     <PackageReference Include="CuteAnt.Runtime" Version="$(CuteAntRuntimePackageVersion)" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.1' ">
     <PackageReference Include="Microsoft.CSharp" Version="$(MicrosoftCSharpPackageVersion)" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <PackageReference Include="Microsoft.CSharp" Version="$(MicrosoftCSharp2PackageVersion)" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,149 @@
+<Project>
+  <!-- Shared Package Versions -->
+  <PropertyGroup>
+    <!-- Core packages -->
+    <MicrosoftBclAsyncInterfacesPackageVersion>1.0.0-rc1.19456.4</MicrosoftBclAsyncInterfacesPackageVersion>
+    <MicrosoftCSharpPackageVersion>4.6.0-rc1.19456.4</MicrosoftCSharpPackageVersion>
+    <MicrosoftDataSqlClientPackageVersion>1.0.19239.1</MicrosoftDataSqlClientPackageVersion>
+    <FSharpCorePackageVersion>4.7.0</FSharpCorePackageVersion>
+    <MonoPosixPackageVersion>5.4.0.201</MonoPosixPackageVersion>
+    <MonoPosixNETStandardPackageVersion>1.0.0</MonoPosixNETStandardPackageVersion>
+
+    <!-- Azure packages -->
+    <MicrosoftAzureKeyVaultPackageVersion>3.0.4</MicrosoftAzureKeyVaultPackageVersion>
+    <WindowsAzureStoragePackageVersion>9.3.3</WindowsAzureStoragePackageVersion>
+
+    <!-- IdentityModel packages -->
+    <MicrosoftIdentityModelKeyVaultExtensionsPackageVersion>5.5.0</MicrosoftIdentityModelKeyVaultExtensionsPackageVersion>
+    <MicrosoftIdentityModelLoggingPackageVersion>5.5.0</MicrosoftIdentityModelLoggingPackageVersion>
+    <MicrosoftIdentityModelManagedKeyVaultSecurityKeyPackageVersion>5.5.0</MicrosoftIdentityModelManagedKeyVaultSecurityKeyPackageVersion>
+    <MicrosoftIdentityModelJsonWebTokensPackageVersion>5.5.0</MicrosoftIdentityModelJsonWebTokensPackageVersion>
+    <MicrosoftIdentityModelProtocolsPackageVersion>5.5.0</MicrosoftIdentityModelProtocolsPackageVersion>
+    <MicrosoftIdentityModelProtocolsOpenIdConnectPackageVersion>5.5.0</MicrosoftIdentityModelProtocolsOpenIdConnectPackageVersion>
+    <MicrosoftIdentityModelProtocolsWsFederationPackageVersion>5.5.0</MicrosoftIdentityModelProtocolsWsFederationPackageVersion>
+    <MicrosoftIdentityModelTokensPackageVersion>5.5.0</MicrosoftIdentityModelTokensPackageVersion>
+    <MicrosoftIdentityModelTokensSamlPackageVersion>5.5.0</MicrosoftIdentityModelTokensSamlPackageVersion>
+    <MicrosoftIdentityModelXmlPackageVersion>5.5.0</MicrosoftIdentityModelXmlPackageVersion>
+    <SystemIdentityModelTokensJwtPackageVersion>5.5.0</SystemIdentityModelTokensJwtPackageVersion>
+
+    <!-- Compatibility packages -->
+    <MicrosoftWin32RegistryPackageVersion>3.0.0-rc1.19456.4</MicrosoftWin32RegistryPackageVersion>
+    <MicrosoftWin32RegistryAccessControlPackageVersion>3.0.0-rc1.19456.4</MicrosoftWin32RegistryAccessControlPackageVersion>
+    <MicrosoftWindowsCompatibilityPackageVersion>3.0.0-rc1.19456.4</MicrosoftWindowsCompatibilityPackageVersion>
+    <MicrosoftWindowsCompatibilityShimsPackageVersion>2.0.1</MicrosoftWindowsCompatibilityShimsPackageVersion>
+    <SystemCodeDomPackageVersion>4.6.0-rc1.19456.4</SystemCodeDomPackageVersion>
+    <SystemComponentModelAnnotationsPackageVersion>4.6.0-rc1.19456.4</SystemComponentModelAnnotationsPackageVersion>
+    <SystemComponentModelCompositionPackageVersion>4.6.0-rc1.19456.4</SystemComponentModelCompositionPackageVersion>
+    <SystemConfigurationConfigurationManagerPackageVersion>4.6.0-rc1.19456.4</SystemConfigurationConfigurationManagerPackageVersion>
+    <SystemDataDataSetExtensionsPackageVersion>4.6.0-rc1.19456.4</SystemDataDataSetExtensionsPackageVersion>
+    <SystemDataOdbcPackageVersion>4.6.0-rc1.19456.4</SystemDataOdbcPackageVersion>
+    <SystemDataSqlClientPackageVersion>4.7.0-rc1.19456.4</SystemDataSqlClientPackageVersion>
+    <SystemDiagnosticsEventLogPackageVersion>4.6.0-rc1.19456.4</SystemDiagnosticsEventLogPackageVersion>
+    <SystemDiagnosticsPerformanceCounterPackageVersion>4.6.0-rc1.19456.4</SystemDiagnosticsPerformanceCounterPackageVersion>
+    <SystemDirectoryServicesPackageVersion>4.6.0-rc1.19456.4</SystemDirectoryServicesPackageVersion>
+    <SystemDirectoryServicesAccountManagementPackageVersion>4.6.0-rc1.19456.4</SystemDirectoryServicesAccountManagementPackageVersion>
+    <SystemDirectoryServicesProtocolsPackageVersion>4.6.0-rc1.19456.4</SystemDirectoryServicesProtocolsPackageVersion>
+    <SystemDrawingCommonPackageVersion>4.6.0-rc1.19456.4</SystemDrawingCommonPackageVersion>
+    <SystemIOFileSystemAccessControlPackageVersion>4.6.0-rc1.19456.4</SystemIOFileSystemAccessControlPackageVersion>
+    <SystemIOPackagingPackageVersion>4.6.0-rc1.19456.4</SystemIOPackagingPackageVersion>
+    <SystemIOPipesAccessControlPackageVersion>4.5.1</SystemIOPipesAccessControlPackageVersion>
+    <SystemIOPortsPackageVersion>4.6.0-rc1.19456.4</SystemIOPortsPackageVersion>
+    <SystemManagementPackageVersion>4.6.0-rc1.19456.4</SystemManagementPackageVersion>
+    <SystemRuntimeCachingPackageVersion>4.6.0-rc1.19456.4</SystemRuntimeCachingPackageVersion>
+    <SystemSecurityAccessControlPackageVersion>4.6.0-rc1.19456.4</SystemSecurityAccessControlPackageVersion>
+    <SystemSecurityPermissionsPackageVersion>4.6.0-rc1.19456.4</SystemSecurityPermissionsPackageVersion>
+    <SystemSecurityPrincipalWindowsPackageVersion>4.6.0-rc1.19456.4</SystemSecurityPrincipalWindowsPackageVersion>
+    <SystemServiceProcessServiceControllerPackageVersion>4.6.0-rc1.19456.4</SystemServiceProcessServiceControllerPackageVersion>
+    <SystemThreadingAccessControlPackageVersion>4.6.0-rc1.19456.4</SystemThreadingAccessControlPackageVersion>
+
+    <!-- System packages -->
+    <SystemCollectionsImmutablePackageVersion>1.6.0-rc1.19456.4</SystemCollectionsImmutablePackageVersion>
+    <SystemReflectionMetadataPackageVersion>1.7.0-rc1.19456.4</SystemReflectionMetadataPackageVersion>
+
+    <SystemBuffersPackageVersion>4.5.0</SystemBuffersPackageVersion>
+    <SystemDiagnosticsDiagnosticSourcePackageVersion>4.6.0-rc1.19456.4</SystemDiagnosticsDiagnosticSourcePackageVersion>
+    <SystemIOPipelinesPackageVersion>4.6.0-rc1.19456.4</SystemIOPipelinesPackageVersion>
+    <SystemMemoryPackageVersion>4.5.3</SystemMemoryPackageVersion>
+    <SystemNetHttpPackageVersion>4.3.4</SystemNetHttpPackageVersion>
+    <SystemNumericsVectorsPackageVersion>4.6.0-preview5.19224.8</SystemNumericsVectorsPackageVersion>
+
+    <SystemReflectionDispatchProxyPackageVersion>4.6.0-rc1.19456.4</SystemReflectionDispatchProxyPackageVersion>
+    <SystemReflectionEmitPackageVersion>4.6.0-rc1.19456.4</SystemReflectionEmitPackageVersion>
+    <SystemReflectionEmitILGenerationPackageVersion>4.6.0-rc1.19456.4</SystemReflectionEmitILGenerationPackageVersion>
+    <SystemReflectionEmitLightweightPackageVersion>4.6.0-rc1.19456.4</SystemReflectionEmitLightweightPackageVersion>
+    <SystemReflectionExtensionsPackageVersion>4.3.0</SystemReflectionExtensionsPackageVersion>
+    <SystemReflectionTypeExtensionsPackageVersion>4.6.0-rc1.19456.4</SystemReflectionTypeExtensionsPackageVersion>
+
+    <SystemRuntimeCompilerServicesUnsafePackageVersion>4.6.0-rc1.19456.4</SystemRuntimeCompilerServicesUnsafePackageVersion>
+
+    <SystemPrivateServiceModelPackageVersion>4.6.0-preview9.final</SystemPrivateServiceModelPackageVersion>
+    <SystemServiceModelDuplexPackageVersion>4.6.0-preview9.final</SystemServiceModelDuplexPackageVersion>
+    <SystemServiceModelHttpPackageVersion>4.6.0-preview9.final</SystemServiceModelHttpPackageVersion>
+    <SystemServiceModelNetTcpPackageVersion>4.6.0-preview9.final</SystemServiceModelNetTcpPackageVersion>
+    <SystemServiceModelPrimitivesPackageVersion>4.6.0-preview9.final</SystemServiceModelPrimitivesPackageVersion>
+    <SystemServiceModelSecurityPackageVersion>4.6.0-preview9.final</SystemServiceModelSecurityPackageVersion>
+    <SystemServiceModelSyndicationPackageVersion>4.6.0-rc1.19456.4</SystemServiceModelSyndicationPackageVersion>
+
+    <SystemSecurityCryptographyCngPackageVersion>4.6.0-rc1.19456.4</SystemSecurityCryptographyCngPackageVersion>
+    <SystemSecurityCryptographyOpenSslPackageVersion>4.6.0-rc1.19456.4</SystemSecurityCryptographyOpenSslPackageVersion>
+    <SystemSecurityCryptographyPkcsPackageVersion>4.6.0-rc1.19456.4</SystemSecurityCryptographyPkcsPackageVersion>
+    <SystemSecurityCryptographyProtectedDataPackageVersion>4.6.0-rc1.19456.4</SystemSecurityCryptographyProtectedDataPackageVersion>
+    <SystemSecurityCryptographyXmlPackageVersion>4.6.0-rc1.19456.4</SystemSecurityCryptographyXmlPackageVersion>
+
+    <SystemTextEncodingCodePagesPackageVersion>4.6.0-rc1.19456.4</SystemTextEncodingCodePagesPackageVersion>
+    <SystemTextEncodingsWebPackageVersion>4.6.0-rc1.19456.4</SystemTextEncodingsWebPackageVersion>
+    <SystemThreadingChannelsPackageVersion>4.6.0-rc1.19456.4</SystemThreadingChannelsPackageVersion>
+    <SystemThreadingTasksDataflowPackageVersion>4.10.0-rc1.19456.4</SystemThreadingTasksDataflowPackageVersion>
+    <SystemThreadingTasksExtensionsPackageVersion>4.5.3</SystemThreadingTasksExtensionsPackageVersion>
+    <SystemValueTuplePackageVersion>4.5.0</SystemValueTuplePackageVersion>
+
+    <!-- Ix packages -->
+    <IxPackageVersion>4.0.0-preview.8.build.9</IxPackageVersion>
+    <SystemInteractivePackageVersion>4.0.0-preview.8.build.9</SystemInteractivePackageVersion>
+    <SystemInteractiveAsyncPackageVersion>4.0.0-preview.8.build.9</SystemInteractiveAsyncPackageVersion>
+    <SystemInteractiveAsyncProvidersPackageVersion>4.0.0-preview.8.build.9</SystemInteractiveAsyncProvidersPackageVersion>
+
+    <!-- Rx packages -->
+    <RxPackageVersion>4.2.0-preview.625</RxPackageVersion>
+    <SystemReactiveLinqPackageVersion>4.2.0-preview.625</SystemReactiveLinqPackageVersion>
+
+    <!-- Obsolete packages -->
+    <SystemCollectionsPackageVersion>4.3.0</SystemCollectionsPackageVersion>
+    <SystemCollectionsNonGenericPackageVersion>4.3.0</SystemCollectionsNonGenericPackageVersion>
+    <SystemCollectionsSpecializedPackageVersion>4.3.0</SystemCollectionsSpecializedPackageVersion>
+    <SystemComponentModelTypeConverterPackageVersion>4.3.0</SystemComponentModelTypeConverterPackageVersion>
+    <SystemDiagnosticsContractsPackageVersion>4.3.0</SystemDiagnosticsContractsPackageVersion>
+    <SystemDiagnosticsDebugPackageVersion>4.3.0</SystemDiagnosticsDebugPackageVersion>
+    <SystemDiagnosticsStackTracePackageVersion>4.3.0</SystemDiagnosticsStackTracePackageVersion>
+    <SystemDiagnosticsTraceSourcePackageVersion>4.3.0</SystemDiagnosticsTraceSourcePackageVersion>
+    <SystemDrawingPrimitivesPackageVersion>4.3.0</SystemDrawingPrimitivesPackageVersion>
+    <SystemDynamicRuntimePackageVersion>4.3.0</SystemDynamicRuntimePackageVersion>
+    <SystemGlobalizationPackageVersion>4.3.0</SystemGlobalizationPackageVersion>
+    <SystemGlobalizationExtensionsPackageVersion>4.3.0</SystemGlobalizationExtensionsPackageVersion>
+    <SystemIOPackageVersion>4.3.0</SystemIOPackageVersion>
+    <SystemIOFileSystemPrimitivesPackageVersion>4.3.0</SystemIOFileSystemPrimitivesPackageVersion>
+    <SystemIOMemoryMappedFilesPackageVersion>4.3.0</SystemIOMemoryMappedFilesPackageVersion>
+    <SystemNetNameResolutionPackageVersion>4.3.0</SystemNetNameResolutionPackageVersion>
+    <SystemNetNetworkInformationPackageVersion>4.3.0</SystemNetNetworkInformationPackageVersion>
+    <SystemNetPrimitivesPackageVersion>4.3.1</SystemNetPrimitivesPackageVersion>
+    <SystemNetSecurityPackageVersion>4.3.2</SystemNetSecurityPackageVersion>
+    <SystemNetSocketsPackageVersion>4.3.0</SystemNetSocketsPackageVersion>
+    <SystemObjectModelPackageVersion>4.3.0</SystemObjectModelPackageVersion>
+    <SystemResourcesResourceManagerPackageVersion>4.3.0</SystemResourcesResourceManagerPackageVersion>
+    <SystemRuntimeHandlesPackageVersion>4.3.0</SystemRuntimeHandlesPackageVersion>
+    <SystemRuntimeInteropServicesPackageVersion>4.3.0</SystemRuntimeInteropServicesPackageVersion>
+    <SystemRuntimeInteropServicesRuntimeInformationPackageVersion>4.3.0</SystemRuntimeInteropServicesRuntimeInformationPackageVersion>
+    <SystemRuntimePackageVersion>4.3.0</SystemRuntimePackageVersion>
+    <SystemRuntimeLoaderPackageVersion>4.3.0</SystemRuntimeLoaderPackageVersion>
+    <SystemRuntimeSerializationFormattersPackageVersion>4.3.0</SystemRuntimeSerializationFormattersPackageVersion>
+    <SystemRuntimeSerializationJsonPackageVersion>4.3.0</SystemRuntimeSerializationJsonPackageVersion>
+    <SystemRuntimeSerializationPrimitivesPackageVersion>4.3.0</SystemRuntimeSerializationPrimitivesPackageVersion>
+    <SystemRuntimeSerializationXmlPackageVersion>4.3.0</SystemRuntimeSerializationXmlPackageVersion>
+    <SystemSecurityCryptographyAlgorithmsPackageVersion>4.3.1</SystemSecurityCryptographyAlgorithmsPackageVersion>
+    <SystemSecurityCryptographyCspPackageVersion>4.3.0</SystemSecurityCryptographyCspPackageVersion>
+    <SystemSecurityCryptographyEncodingPackageVersion>4.3.0</SystemSecurityCryptographyEncodingPackageVersion>
+    <SystemSecurityCryptographyPrimitivesPackageVersion>4.3.0</SystemSecurityCryptographyPrimitivesPackageVersion>
+    <SystemSecurityCryptographyX509CertificatesPackageVersion>4.3.2</SystemSecurityCryptographyX509CertificatesPackageVersion>
+    <SystemXmlXmlSerializerPackageVersion>4.3.0</SystemXmlXmlSerializerPackageVersion>
+  </PropertyGroup>
+</Project>

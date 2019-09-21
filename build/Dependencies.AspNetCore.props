@@ -1,0 +1,70 @@
+<Project>
+  <!-- Shared Package Versions -->
+  <PropertyGroup>
+    <MicrosoftAspNetCoreAuthenticationAzureADUIPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreAuthenticationAzureADUIPackageVersion>
+    <MicrosoftAspNetCoreAuthenticationFacebookPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreAuthenticationFacebookPackageVersion>
+    <MicrosoftAspNetCoreAuthenticationGooglePackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreAuthenticationGooglePackageVersion>
+    <MicrosoftAspNetCoreAuthenticationJwtBearerPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreAuthenticationJwtBearerPackageVersion>
+    <MicrosoftAspNetCoreAuthenticationMicrosoftAccountPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreAuthenticationMicrosoftAccountPackageVersion>
+    <MicrosoftAspNetCoreAuthenticationOpenIdConnectPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreAuthenticationOpenIdConnectPackageVersion>
+    <MicrosoftAspNetCoreAuthenticationTwitterPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreAuthenticationTwitterPackageVersion>
+    <MicrosoftAspNetCoreAuthenticationWsFederationPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreAuthenticationWsFederationPackageVersion>
+
+    <MicrosoftAspNetCoreAuthorizationPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreAuthorizationPackageVersion>
+
+    <MicrosoftAspNetCoreConnectionsAbstractionsPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreConnectionsAbstractionsPackageVersion>
+
+    <MicrosoftAspNetCoreCryptographyInternalPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreCryptographyInternalPackageVersion>
+    <MicrosoftAspNetCoreCryptographyKeyDerivationPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreCryptographyKeyDerivationPackageVersion>
+
+    <MicrosoftAspNetCoreDataProtectionPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreDataProtectionPackageVersion>
+    <MicrosoftAspNetCoreDataProtectionAbstractionsPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreDataProtectionAbstractionsPackageVersion>
+    <MicrosoftAspNetCoreDataProtectionAzureKeyVaultPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreDataProtectionAzureKeyVaultPackageVersion>
+    <MicrosoftAspNetCoreDataProtectionAzureStoragePackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreDataProtectionAzureStoragePackageVersion>
+    <MicrosoftAspNetCoreDataProtectionExtensionsPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreDataProtectionExtensionsPackageVersion>
+    <MicrosoftAspNetCoreDataProtectionStackExchangeRedisPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreDataProtectionStackExchangeRedisPackageVersion>
+    <MicrosoftAspNetCoreDataProtectionSystemWebPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreDataProtectionSystemWebPackageVersion>
+
+    <MicrosoftAspNetCoreHttpConnectionsClientPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreHttpConnectionsClientPackageVersion>
+    <MicrosoftAspNetCoreHttpConnectionsCommonPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreHttpConnectionsCommonPackageVersion>
+    <MicrosoftAspNetCoreHttpFeaturesPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreHttpFeaturesPackageVersion>
+
+    <MicrosoftAspNetCoreMvcNewtonsoftJsonPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreMvcNewtonsoftJsonPackageVersion>
+    <MicrosoftAspNetCoreMvcRazorRuntimeCompilationPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreMvcRazorRuntimeCompilationPackageVersion>
+
+    <MicrosoftAspNetCoreSignalRPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreSignalRPackageVersion>
+    <MicrosoftAspNetCoreSignalRClientPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreSignalRClientPackageVersion>
+    <MicrosoftAspNetCoreSignalRClientCorePackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreSignalRClientCorePackageVersion>
+    <MicrosoftAspNetCoreSignalRClientMsgPackPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreSignalRClientMsgPackPackageVersion>
+    <MicrosoftAspNetCoreSignalRCommonPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreSignalRCommonPackageVersion>
+    <MicrosoftAspNetCoreSignalRCorePackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreSignalRCorePackageVersion>
+    <MicrosoftAspNetCoreSignalRProtocolsNewtonsoftJsonPackageVersion>3.0.0-preview4-19216-03</MicrosoftAspNetCoreSignalRProtocolsNewtonsoftJsonPackageVersion>
+    <MicrosoftAspNetCoreSignalRProtocolsJsonPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreSignalRProtocolsJsonPackageVersion>
+    <MicrosoftAspNetCoreSignalRProtocolsMessagePackPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreSignalRProtocolsMessagePackPackageVersion>
+    <MicrosoftAspNetCoreSignalRStackExchangeRedisPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreSignalRStackExchangeRedisPackageVersion>
+
+    <MicrosoftAspNetCoreMvcTestingPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreMvcTestingPackageVersion>
+    <MicrosoftAspNetCoreTestHostPackageVersion>3.0.0-rc1.19457.4</MicrosoftAspNetCoreTestHostPackageVersion>
+	
+    <MicrosoftAspNetCoreRazorLanguagePackageVersion>3.0.0-rc1.19457.3</MicrosoftAspNetCoreRazorLanguagePackageVersion>
+    <MicrosoftCodeAnalysisRazorPackageVersion>3.0.0-rc1.19457.3</MicrosoftCodeAnalysisRazorPackageVersion>
+
+    <MicrosoftDataSqliteCorePackageVersion>3.0.0-rc1.19456.14</MicrosoftDataSqliteCorePackageVersion>
+    <MicrosoftDataSqlitePackageVersion>3.0.0-rc1.19456.14</MicrosoftDataSqlitePackageVersion>
+
+    <MicrosoftEntityFrameworkCorePackageVersion>3.0.0-rc1.19456.14</MicrosoftEntityFrameworkCorePackageVersion>
+    <MicrosoftEntityFrameworkCoreAbstractionsPackageVersion>3.0.0-rc1.19456.14</MicrosoftEntityFrameworkCoreAbstractionsPackageVersion>
+    <MicrosoftEntityFrameworkCoreAnalyzersPackageVersion>3.0.0-rc1.19456.14</MicrosoftEntityFrameworkCoreAnalyzersPackageVersion>
+    <MicrosoftEntityFrameworkCoreDesignPackageVersion>3.0.0-rc1.19456.14</MicrosoftEntityFrameworkCoreDesignPackageVersion>
+    <MicrosoftEntityFrameworkCoreInMemoryPackageVersion>3.0.0-rc1.19456.14</MicrosoftEntityFrameworkCoreInMemoryPackageVersion>
+    <MicrosoftEntityFrameworkCoreRelationalPackageVersion>3.0.0-rc1.19456.14</MicrosoftEntityFrameworkCoreRelationalPackageVersion>
+    <MicrosoftEntityFrameworkCoreSqlitePackageVersion>3.0.0-rc1.19456.14</MicrosoftEntityFrameworkCoreSqlitePackageVersion>
+    <MicrosoftEntityFrameworkCoreSqliteCorePackageVersion>3.0.0-rc1.19456.14</MicrosoftEntityFrameworkCoreSqliteCorePackageVersion>
+    <MicrosoftEntityFrameworkCoreSqlServerPackageVersion>3.0.0-rc1.19456.14</MicrosoftEntityFrameworkCoreSqlServerPackageVersion>
+    <MicrosoftEntityFrameworkCoreToolsPackageVersion>3.0.0-rc1.19456.14</MicrosoftEntityFrameworkCoreToolsPackageVersion>
+
+    <MicrosoftExtensionsIdentityCorePackageVersion>3.0.0-rc1.19457.4</MicrosoftExtensionsIdentityCorePackageVersion>
+    <MicrosoftExtensionsIdentityStoresPackageVersion>3.0.0-rc1.19457.4</MicrosoftExtensionsIdentityStoresPackageVersion>
+    <MicrosoftExtensionsWebEncodersPackageVersion>3.0.0-rc1.19456.10</MicrosoftExtensionsWebEncodersPackageVersion>
+  </PropertyGroup>
+</Project>
