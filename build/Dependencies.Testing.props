@@ -10,14 +10,15 @@
     <NBenchPackageVersion>1.2.2</NBenchPackageVersion>
     <NBenchRunnerPackageVersion>1.2.2</NBenchRunnerPackageVersion>
 
-    <BogusPackageVersion>28.0.2</BogusPackageVersion>
+    <AlbaPackageVersion>3.0.0</AlbaPackageVersion>
+    <BogusPackageVersion>28.3.1</BogusPackageVersion>
     <FluentAssertions4PackageVersion>4.19.4</FluentAssertions4PackageVersion>
     <FluentAssertions5PackageVersion>5.7.0</FluentAssertions5PackageVersion>
     <FluentAssertionsPackageVersion>5.7.0</FluentAssertionsPackageVersion>
     <MoqPackageVersion>4.13.0</MoqPackageVersion>
     <NSubstitutePackageVersion>4.2.1</NSubstitutePackageVersion>
     <ReportGeneratorPackageVersion>4.2.10</ReportGeneratorPackageVersion>
-    <ShouldlyPackageVersion>3.0.2</ShouldlyPackageVersion>
+    <ShouldlyPackageVersion>4.0.0-beta0002</ShouldlyPackageVersion>
 
     <xUnitPackageVersion>2.4.1</xUnitPackageVersion>
     <xUnitAnalyzersPackageVersion>0.10.0</xUnitAnalyzersPackageVersion>

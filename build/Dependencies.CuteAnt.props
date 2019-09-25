@@ -2,10 +2,10 @@
   <!-- Shared Package Versions -->
   <PropertyGroup Label="Package Versions">
     <!-- core packages -->
-    <CuteAntCoreAbstractionsPackageVersion>3.0.0-rc-190910-01</CuteAntCoreAbstractionsPackageVersion>
-    <CuteAntCorePackageVersion>3.0.0-rc-190910-01</CuteAntCorePackageVersion>
-    <CuteAntAsyncExPackageVersion>3.0.0-rc-190910-01</CuteAntAsyncExPackageVersion>
-    <CuteAntRuntimePackageVersion>3.0.0-rc-190910-01</CuteAntRuntimePackageVersion>
+    <CuteAntCoreAbstractionsPackageVersion>3.0.0-rtm-190912-01</CuteAntCoreAbstractionsPackageVersion>
+    <CuteAntCorePackageVersion>3.0.0-rtm-190912-01</CuteAntCorePackageVersion>
+    <CuteAntAsyncExPackageVersion>3.0.0-rtm-190912-01</CuteAntAsyncExPackageVersion>
+    <CuteAntRuntimePackageVersion>3.0.0-rtm-190912-01</CuteAntRuntimePackageVersion>
 
     <PollyUnofficialPackageVersion>6.1.2</PollyUnofficialPackageVersion>
     <ReactiveStreamsSignedPackageVersion>1.0.2</ReactiveStreamsSignedPackageVersion>
@@ -61,21 +61,21 @@
     <NpgsqlUnofficialPackageVersion>4.0.8-rtm-190807-01</NpgsqlUnofficialPackageVersion>
     <NpgsqlNetTopologySuiteUnofficialPackageVersion>4.0.8-rtm-190807-01</NpgsqlNetTopologySuiteUnofficialPackageVersion>
     <CuteAntExtensionsRedisPackageVersion>2.1.0-rc1-180512-01</CuteAntExtensionsRedisPackageVersion>
-    <CuteAntWingsPackageVersion>3.0.0-rc-190907-01</CuteAntWingsPackageVersion>
-    <CuteAntWingsAbstractionsPackageVersion>3.0.0-rc-190907-01</CuteAntWingsAbstractionsPackageVersion>
-    <CuteAntWingsMySqlPackageVersion>3.0.0-rc-190907-01</CuteAntWingsMySqlPackageVersion>
-    <CuteAntWingsOraclePackageVersion>3.0.0-rc-190907-01</CuteAntWingsOraclePackageVersion>
-    <CuteAntWingsPostgreSQLPackageVersion>3.0.0-rc-190907-01</CuteAntWingsPostgreSQLPackageVersion>
-    <CuteAntWingsSqlitePackageVersion>3.0.0-rc-190907-01</CuteAntWingsSqlitePackageVersion>
-    <CuteAntWingsSqlServerPackageVersion>3.0.0-rc-190907-01</CuteAntWingsSqlServerPackageVersion>
-    <CuteAntWingsSqlServerConvertersPackageVersion>3.0.0-rc-190907-01</CuteAntWingsSqlServerConvertersPackageVersion>
-    <YesSqlAbstractionsSignedPackageVersion>2.0.0-beta-190907-01</YesSqlAbstractionsSignedPackageVersion>
-    <YesSqlCoreSignedPackageVersion>2.0.0-beta-190907-01</YesSqlCoreSignedPackageVersion>
-    <YesSqlProviderCommonSignedPackageVersion>1.0.0-beta-190907-01</YesSqlProviderCommonSignedPackageVersion>
-    <YesSqlProviderMySqlSignedPackageVersion>1.0.0-beta-190907-01</YesSqlProviderMySqlSignedPackageVersion>
-    <YesSqlProviderPostgreSqlSignedPackageVersion>1.0.0-beta-190907-01</YesSqlProviderPostgreSqlSignedPackageVersion>
-    <YesSqlProviderSqliteSignedPackageVersion>1.0.0-beta-190907-01</YesSqlProviderSqliteSignedPackageVersion>
-    <YesSqlProviderSqlServerSignedPackageVersion>1.0.0-beta-190907-01</YesSqlProviderSqlServerSignedPackageVersion>
+    <CuteAntWingsPackageVersion>3.0.0-rc-190910-01</CuteAntWingsPackageVersion>
+    <CuteAntWingsAbstractionsPackageVersion>3.0.0-rc-190910-01</CuteAntWingsAbstractionsPackageVersion>
+    <CuteAntWingsMySqlPackageVersion>3.0.0-rc-190910-01</CuteAntWingsMySqlPackageVersion>
+    <CuteAntWingsOraclePackageVersion>3.0.0-rc-190910-01</CuteAntWingsOraclePackageVersion>
+    <CuteAntWingsPostgreSQLPackageVersion>3.0.0-rc-190910-01</CuteAntWingsPostgreSQLPackageVersion>
+    <CuteAntWingsSqlitePackageVersion>3.0.0-rc-190910-01</CuteAntWingsSqlitePackageVersion>
+    <CuteAntWingsSqlServerPackageVersion>3.0.0-rc-190910-01</CuteAntWingsSqlServerPackageVersion>
+    <CuteAntWingsSqlServerConvertersPackageVersion>3.0.0-rc-190910-01</CuteAntWingsSqlServerConvertersPackageVersion>
+    <YesSqlAbstractionsSignedPackageVersion>2.0.0-beta-190910-01</YesSqlAbstractionsSignedPackageVersion>
+    <YesSqlCoreSignedPackageVersion>2.0.0-beta-190910-01</YesSqlCoreSignedPackageVersion>
+    <YesSqlProviderCommonSignedPackageVersion>1.0.0-beta-190910-01</YesSqlProviderCommonSignedPackageVersion>
+    <YesSqlProviderMySqlSignedPackageVersion>1.0.0-beta-190910-01</YesSqlProviderMySqlSignedPackageVersion>
+    <YesSqlProviderPostgreSqlSignedPackageVersion>1.0.0-beta-190910-01</YesSqlProviderPostgreSqlSignedPackageVersion>
+    <YesSqlProviderSqliteSignedPackageVersion>1.0.0-beta-190910-01</YesSqlProviderSqliteSignedPackageVersion>
+    <YesSqlProviderSqlServerSignedPackageVersion>1.0.0-beta-190910-01</YesSqlProviderSqlServerSignedPackageVersion>
 
     <!-- Hosting related packages -->
     <CuteAntHostingPackageVersion>2.1.0-rc1-180512-01</CuteAntHostingPackageVersion>
@@ -150,11 +150,11 @@
     <MessagePackLZ4UnofficialPackageVersion>1.1.0-rtm-190618-02</MessagePackLZ4UnofficialPackageVersion>
     <MessagePackUnofficialPackageVersion>1.1.0-rtm-190618-02</MessagePackUnofficialPackageVersion>
     <ServiceStackTextNet40PackageVersion>5.5.0-rtm-190310-01</ServiceStackTextNet40PackageVersion>
-    <ServiceStackTextUnofficialPackageVersion>5.5.0-rtm-190905-01</ServiceStackTextUnofficialPackageVersion>
+    <ServiceStackTextUnofficialPackageVersion>5.5.0-rtm-190910-01</ServiceStackTextUnofficialPackageVersion>
     <SpanJsonAnnotationsPackageVersion>2.0.18</SpanJsonAnnotationsPackageVersion>
-    <SpanJsonUnofficialPackageVersion>2.0.18-rtm-190910-01</SpanJsonUnofficialPackageVersion>
-    <SpanJsonExtensionsPackageVersion>2.0.18-rtm-190910-01</SpanJsonExtensionsPackageVersion>
-    <SpanJsonAspNetCoreFormatterUnofficialPackageVersion>2.0.18-rtm-190910-01</SpanJsonAspNetCoreFormatterUnofficialPackageVersion>
+    <SpanJsonUnofficialPackageVersion>2.0.18-rtm-190912-01</SpanJsonUnofficialPackageVersion>
+    <SpanJsonExtensionsPackageVersion>2.0.18-rtm-190912-01</SpanJsonExtensionsPackageVersion>
+    <SpanJsonAspNetCoreFormatterUnofficialPackageVersion>2.0.18-rtm-190912-01</SpanJsonAspNetCoreFormatterUnofficialPackageVersion>
     <Utf8JsonAbstractionsUnofficialPackageVersion>1.3.6-rtm-190618-01</Utf8JsonAbstractionsUnofficialPackageVersion>
     <Utf8JsonImmutableCollectionUnofficialPackageVersion>1.3.6-rtm-190618-01</Utf8JsonImmutableCollectionUnofficialPackageVersion>
     <Utf8JsonUnofficialPackageVersion>1.3.6-rtm-190618-01</Utf8JsonUnofficialPackageVersion>
