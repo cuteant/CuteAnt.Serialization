@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
@@ -16,9 +17,6 @@ namespace ServiceStack.Text
     {
         static JsConfig()
         {
-            //In-built default serialization, to Deserialize Color struct do:
-            //JsConfig<System.Drawing.Color>.SerializeFn = c => c.ToString().Replace("Color ", "").Replace("[", "").Replace("]", "");
-            //JsConfig<System.Drawing.Color>.DeSerializeFn = System.Drawing.Color.FromName;
             Reset();
             //LicenseUtils.Init();
         }

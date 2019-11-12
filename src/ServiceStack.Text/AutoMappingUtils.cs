@@ -159,6 +159,10 @@ namespace ServiceStack
             if (fromType.IsValueType || toType.IsValueType)
                 return ChangeValueType(from, toType);
 
+            var mi = GetImplicitCastMethod(fromType, toType);
+            if (mi != null)
+                return mi.Invoke(null, new[] { from });
+
             if (from is string str)
                 return SSTTypeSerializer.DeserializeFromString(str, toType);
             if (from is ReadOnlyMemory<char> rom)
@@ -180,12 +184,20 @@ namespace ServiceStack
                 return strDict.ToObjectDictionary().FromObjectDictionary(toType);
 
             var to = toType.CreateInstance();
-            return to.PopulateWithNonDefaultValues(from);
+            return to.PopulateWith(from);
         }
 
         public static MethodInfo GetImplicitCastMethod(Type fromType, Type toType)
         {
             foreach (var mi in fromType.GetMethods(BindingFlags.Public | BindingFlags.Static))
+            {
+                if (mi.Name == "op_Implicit" && mi.ReturnType == toType &&
+                    mi.GetParameters().FirstOrDefault()?.ParameterType == fromType)
+                {
+                    return mi;
+                }
+            }
+            foreach (var mi in toType.GetMethods(BindingFlags.Public | BindingFlags.Static))
             {
                 if (mi.Name == "op_Implicit" && mi.ReturnType == toType &&
                     mi.GetParameters().FirstOrDefault()?.ParameterType == fromType)
@@ -199,6 +211,14 @@ namespace ServiceStack
         public static MethodInfo GetExplicitCastMethod(Type fromType, Type toType)
         {
             foreach (var mi in toType.GetMethods(BindingFlags.Public | BindingFlags.Static))
+            {
+                if (mi.Name == "op_Explicit" && mi.ReturnType == toType &&
+                    mi.GetParameters().FirstOrDefault()?.ParameterType == fromType)
+                {
+                    return mi;
+                }
+            }
+            foreach (var mi in fromType.GetMethods(BindingFlags.Public | BindingFlags.Static))
             {
                 if (mi.Name == "op_Explicit" && mi.ReturnType == toType &&
                     mi.GetParameters().FirstOrDefault()?.ParameterType == fromType)
@@ -376,7 +396,7 @@ namespace ServiceStack
         private static object PopulateObjectInternal(object obj, Dictionary<Type, int> recursionInfo)
         {
             if (obj == null) return null;
-            if (obj is string) return obj; // prevents it from dropping into the char[] Chars property.  Sheesh
+            if (obj is string) return obj; // prevents it from dropping into the char[] Chars property.
             var type = obj.GetType();
 
             var members = type.GetPublicMembers();

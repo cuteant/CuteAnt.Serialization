@@ -22,6 +22,9 @@ namespace ServiceStack
         object mod(object lhs, object rhs);
         object pow(object lhs, object rhs);
         object log(object lhs, object rhs);
+        object min(object lhs, object rhs);
+        object max(object lhs, object rhs);
+        int compareTo(object lhs, object rhs);
         
         object bitwiseAnd(object lhs, object rhs);
         object bitwiseOr(object lhs, object rhs);
@@ -61,8 +64,11 @@ namespace ServiceStack
         public object mul(object lhs, object rhs) => Convert(lhs) * Convert(rhs);
         public object div(object lhs, object rhs) => Convert(lhs) / Convert(rhs);
         public object mod(object lhs, object rhs) => Convert(lhs) % Convert(rhs);
+        public object min(object lhs, object rhs) => Math.Min(Convert(lhs), Convert(rhs));
+        public object max(object lhs, object rhs) => Math.Max(Convert(lhs), Convert(rhs));
         public object pow(object lhs, object rhs) => Math.Pow(Convert(lhs), Convert(rhs));
         public object log(object lhs, object rhs) => Math.Log(Convert(lhs), Convert(rhs));
+        public int compareTo(object lhs, object rhs) => Convert(lhs).CompareTo(Convert(rhs));
         
         public object bitwiseAnd(object lhs, object rhs) => Convert(lhs) & Convert(rhs);
         public object bitwiseOr(object lhs, object rhs) => Convert(lhs) | Convert(rhs);
@@ -102,8 +108,11 @@ namespace ServiceStack
         public object mul(object lhs, object rhs) => Convert(lhs) * Convert(rhs);
         public object div(object lhs, object rhs) => Convert(lhs) / Convert(rhs);
         public object mod(object lhs, object rhs) => Convert(lhs) % Convert(rhs);
+        public object min(object lhs, object rhs) => Math.Min(Convert(lhs), Convert(rhs));
+        public object max(object lhs, object rhs) => Math.Max(Convert(lhs), Convert(rhs));
         public object pow(object lhs, object rhs) => Math.Pow(Convert(lhs), Convert(rhs));
         public object log(object lhs, object rhs) => Math.Log(Convert(lhs), Convert(rhs));
+        public int compareTo(object lhs, object rhs) => Convert(lhs).CompareTo(Convert(rhs));
 
         public object bitwiseAnd(object lhs, object rhs) => Convert(lhs) & Convert(rhs);
         public object bitwiseOr(object lhs, object rhs) => Convert(lhs) | Convert(rhs);
@@ -143,8 +152,11 @@ namespace ServiceStack
         public object mul(object lhs, object rhs) => Convert(lhs) * Convert(rhs);
         public object div(object lhs, object rhs) => Convert(lhs) / Convert(rhs);
         public object mod(object lhs, object rhs) => Convert(lhs) % Convert(rhs);
+        public object min(object lhs, object rhs) => Math.Min(Convert(lhs), Convert(rhs));
+        public object max(object lhs, object rhs) => Math.Max(Convert(lhs), Convert(rhs));
         public object pow(object lhs, object rhs) => Math.Pow(Convert(lhs), Convert(rhs));
         public object log(object lhs, object rhs) => Math.Log(Convert(lhs), Convert(rhs));
+        public int compareTo(object lhs, object rhs) => Convert(lhs).CompareTo(Convert(rhs));
 
         public object bitwiseAnd(object lhs, object rhs) => Convert(lhs) & Convert(rhs);
         public object bitwiseOr(object lhs, object rhs) => Convert(lhs) | Convert(rhs);
@@ -184,8 +196,11 @@ namespace ServiceStack
         public object mul(object lhs, object rhs) => Convert(lhs) * Convert(rhs);
         public object div(object lhs, object rhs) => Convert(lhs) / Convert(rhs);
         public object mod(object lhs, object rhs) => Convert(lhs) % Convert(rhs);
+        public object min(object lhs, object rhs) => Math.Min(Convert(lhs), Convert(rhs));
+        public object max(object lhs, object rhs) => Math.Max(Convert(lhs), Convert(rhs));
         public object pow(object lhs, object rhs) => Math.Pow(Convert(lhs), Convert(rhs));
         public object log(object lhs, object rhs) => Math.Log(Convert(lhs), Convert(rhs));
+        public int compareTo(object lhs, object rhs) => Convert(lhs).CompareTo(Convert(rhs));
 
         public object bitwiseAnd(object lhs, object rhs) => Convert(lhs) & Convert(rhs);
         public object bitwiseOr(object lhs, object rhs) => Convert(lhs) | Convert(rhs);
@@ -225,8 +240,11 @@ namespace ServiceStack
         public object mul(object lhs, object rhs) => Convert(lhs) * Convert(rhs);
         public object div(object lhs, object rhs) => Convert(lhs) / Convert(rhs);
         public object mod(object lhs, object rhs) => Convert(lhs) % Convert(rhs);
+        public object min(object lhs, object rhs) => Math.Min(Convert(lhs), Convert(rhs));
+        public object max(object lhs, object rhs) => Math.Max(Convert(lhs), Convert(rhs));
         public object pow(object lhs, object rhs) => Math.Pow(Convert(lhs), Convert(rhs));
         public object log(object lhs, object rhs) => Math.Log(Convert(lhs), Convert(rhs));
+        public int compareTo(object lhs, object rhs) => Convert(lhs).CompareTo(Convert(rhs));
 
         public object bitwiseAnd(object lhs, object rhs) => Convert(lhs) & Convert(rhs);
         public object bitwiseOr(object lhs, object rhs) => Convert(lhs) | Convert(rhs);
@@ -266,8 +284,11 @@ namespace ServiceStack
         public object mul(object lhs, object rhs) => Convert(lhs) * Convert(rhs);
         public object div(object lhs, object rhs) => Convert(lhs) / Convert(rhs);
         public object mod(object lhs, object rhs) => Convert(lhs) % Convert(rhs);
+        public object min(object lhs, object rhs) => Math.Min(Convert(lhs), Convert(rhs));
+        public object max(object lhs, object rhs) => Math.Max(Convert(lhs), Convert(rhs));
         public object pow(object lhs, object rhs) => Math.Pow(Convert(lhs), Convert(rhs));
         public object log(object lhs, object rhs) => Math.Log(Convert(lhs), Convert(rhs));
+        public int compareTo(object lhs, object rhs) => Convert(lhs).CompareTo(Convert(rhs));
 
         public object bitwiseAnd(object lhs, object rhs) => Convert(lhs) & Convert(rhs);
         public object bitwiseOr(object lhs, object rhs) => Convert(lhs) | Convert(rhs);
@@ -307,8 +328,11 @@ namespace ServiceStack
         public object mul(object lhs, object rhs) => Convert(lhs) * Convert(rhs);
         public object div(object lhs, object rhs) => Convert(lhs) / Convert(rhs);
         public object mod(object lhs, object rhs) => Convert(lhs) % Convert(rhs);
+        public object min(object lhs, object rhs) => Math.Min(Convert(lhs), Convert(rhs));
+        public object max(object lhs, object rhs) => Math.Max(Convert(lhs), Convert(rhs));
         public object pow(object lhs, object rhs) => Math.Pow(Convert(lhs), Convert(rhs));
         public object log(object lhs, object rhs) => Math.Log(Convert(lhs), Convert(rhs));
+        public int compareTo(object lhs, object rhs) => Convert(lhs).CompareTo(Convert(rhs));
 
         public object bitwiseAnd(object lhs, object rhs) => Convert(lhs) & Convert(rhs);
         public object bitwiseOr(object lhs, object rhs) => Convert(lhs) | Convert(rhs);
@@ -348,8 +372,11 @@ namespace ServiceStack
         public object mul(object lhs, object rhs) => Convert(lhs) * Convert(rhs);
         public object div(object lhs, object rhs) => Convert(lhs) / Convert(rhs);
         public object mod(object lhs, object rhs) => Convert(lhs) % Convert(rhs);
+        public object min(object lhs, object rhs) => Math.Min(Convert(lhs), Convert(rhs));
+        public object max(object lhs, object rhs) => Math.Max(Convert(lhs), Convert(rhs));
         public object pow(object lhs, object rhs) => Math.Pow(Convert(lhs), Convert(rhs));
         public object log(object lhs, object rhs) => Math.Log(Convert(lhs), Convert(rhs));
+        public int compareTo(object lhs, object rhs) => Convert(lhs).CompareTo(Convert(rhs));
 
         public object bitwiseAnd(object lhs, object rhs) => Convert(lhs) & Convert(rhs);
         public object bitwiseOr(object lhs, object rhs) => Convert(lhs) | Convert(rhs);
@@ -389,8 +416,11 @@ namespace ServiceStack
         public object mul(object lhs, object rhs) => Convert(lhs) * Convert(rhs);
         public object div(object lhs, object rhs) => Convert(lhs) / Convert(rhs);
         public object mod(object lhs, object rhs) => Convert(lhs) % Convert(rhs);
+        public object min(object lhs, object rhs) => Math.Min(Convert(lhs), Convert(rhs));
+        public object max(object lhs, object rhs) => Math.Max(Convert(lhs), Convert(rhs));
         public object pow(object lhs, object rhs) => Math.Pow(Convert(lhs), Convert(rhs));
         public object log(object lhs, object rhs) => Math.Log(Convert(lhs), Convert(rhs));
+        public int compareTo(object lhs, object rhs) => Convert(lhs).CompareTo(Convert(rhs));
 
         public object bitwiseAnd(object lhs, object rhs) => throw new NotSupportedException("Bitwise operators only supported on integer types");
         public object bitwiseOr(object lhs, object rhs) => throw new NotSupportedException("Bitwise operators only supported on integer types");
@@ -430,8 +460,11 @@ namespace ServiceStack
         public object mul(object lhs, object rhs) => Convert(lhs) * Convert(rhs);
         public object div(object lhs, object rhs) => Convert(lhs) / Convert(rhs);
         public object mod(object lhs, object rhs) => Convert(lhs) % Convert(rhs);
+        public object min(object lhs, object rhs) => Math.Min(Convert(lhs), Convert(rhs));
+        public object max(object lhs, object rhs) => Math.Max(Convert(lhs), Convert(rhs));
         public object pow(object lhs, object rhs) => Math.Pow(Convert(lhs), Convert(rhs));
         public object log(object lhs, object rhs) => Math.Log(Convert(lhs), Convert(rhs));
+        public int compareTo(object lhs, object rhs) => Convert(lhs).CompareTo(Convert(rhs));
 
         public object bitwiseAnd(object lhs, object rhs) => throw new NotSupportedException("Bitwise operators only supported on integer types");
         public object bitwiseOr(object lhs, object rhs) => throw new NotSupportedException("Bitwise operators only supported on integer types");
@@ -471,8 +504,11 @@ namespace ServiceStack
         public object mul(object lhs, object rhs) => Convert(lhs) * Convert(rhs);
         public object div(object lhs, object rhs) => Convert(lhs) / Convert(rhs);
         public object mod(object lhs, object rhs) => Convert(lhs) % Convert(rhs);
+        public object min(object lhs, object rhs) => Math.Min(Convert(lhs), Convert(rhs));
+        public object max(object lhs, object rhs) => Math.Max(Convert(lhs), Convert(rhs));
         public object pow(object lhs, object rhs) => Math.Pow((double) Convert(lhs), (double) Convert(rhs));
         public object log(object lhs, object rhs) => Math.Log((double) Convert(lhs), (double) Convert(rhs));
+        public int compareTo(object lhs, object rhs) => Convert(lhs).CompareTo(Convert(rhs));
 
         public object bitwiseAnd(object lhs, object rhs) => throw new NotSupportedException("Bitwise operators only supported on integer types");
         public object bitwiseOr(object lhs, object rhs) => throw new NotSupportedException("Bitwise operators only supported on integer types");
@@ -624,10 +660,19 @@ namespace ServiceStack
         public static object Mod(object lhs, object rhs) => AssertNumbers(nameof(Mod), lhs, rhs).mod(lhs, rhs);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static object Min(object lhs, object rhs) => AssertNumbers(nameof(Min), lhs, rhs).min(lhs, rhs);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static object Max(object lhs, object rhs) => AssertNumbers(nameof(Max), lhs, rhs).max(lhs, rhs);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static object Pow(object lhs, object rhs) => AssertNumbers(nameof(Pow), lhs, rhs).pow(lhs, rhs);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static object Log(object lhs, object rhs) => AssertNumbers(nameof(Log), lhs, rhs).log(lhs, rhs);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int CompareTo(object lhs, object rhs) => AssertNumbers(nameof(CompareTo), lhs, rhs).compareTo(lhs, rhs);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static object BitwiseAnd(object lhs, object rhs) => AssertNumbers(nameof(BitwiseAnd), lhs, rhs).bitwiseAnd(lhs, rhs);
@@ -659,11 +704,12 @@ namespace ServiceStack
             if (strValue.Length == 1)
             {
                 int singleDigit = strValue[0];
-                if (singleDigit >= 48 || singleDigit <= 57) // 0 - 9
+                if (singleDigit >= '0' && singleDigit <= '9')
                 {
                     result = singleDigit - 48; // 0 
                     return true;
                 }
+                return false;
             }
 
             var hasDecimal = strValue.IndexOf('.') >= 0;

@@ -38,19 +38,19 @@ namespace ServiceStack
             var chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
             var len = source.Length;
             if (len == 0)
-                throw new Exception(Format("Parameter: '{0}' is not valid integer (in base {1}).", source, from));
+                throw new Exception($"Parameter: '{source}' is not valid integer (in base {@from}).");
             var minus = source[0] == '-' ? "-" : "";
             var src = minus == "" ? source : source.Substring(1);
             len = src.Length;
             if (len == 0)
-                throw new Exception(Format("Parameter: '{0}' is not valid integer (in base {1}).", source, from));
+                throw new Exception($"Parameter: '{source}' is not valid integer (in base {@from}).");
 
             var d = 0;
             for (int i = 0; i < len; i++) // Convert to decimal
             {
                 int c = chars.IndexOf(src[i]);
                 if (c >= from)
-                    throw new Exception(Format("Parameter: '{0}' is not valid integer (in base {1}).", source, from));
+                    throw new Exception($"Parameter: '{source}' is not valid integer (in base {@from}).");
                 d = d * from + c;
             }
             if (to == 10 || d == 0)
@@ -224,16 +224,24 @@ namespace ServiceStack
             return new string(array);
         }
 
+        private static char[] UrlPathDelims = new[] {'?', '#'};
+
+        public static string UrlWithTrailingSlash(this string url)
+        {
+            var endPos = url?.IndexOfAny(UrlPathDelims) ?? -1;
+            return endPos >= 0
+                ? url.Substring(0, endPos).WithTrailingSlash() + url.Substring(endPos)
+                : url.WithTrailingSlash();
+        }
+        
         public static string WithTrailingSlash(this string path)
         {
-            if (String.IsNullOrEmpty(path))
-                throw new ArgumentNullException("path");
+            if (path == null)
+                throw new ArgumentNullException(nameof(path));
+            if (path == "")
+                return "/";
 
-            if (path[path.Length - 1] != '/')
-            {
-                return path + "/";
-            }
-            return path;
+            return path[path.Length - 1] != '/' ? path + "/" : path;
         }
 
         public static string AppendPath(this string uri, params string[] uriComponents)
@@ -650,22 +658,22 @@ namespace ServiceStack
         public static string ExtractContents(this string fromText, string uniqueMarker, string startAfter, string endAt)
         {
             if (String.IsNullOrEmpty(uniqueMarker))
-                throw new ArgumentNullException("uniqueMarker");
+                throw new ArgumentNullException(nameof(uniqueMarker));
             if (String.IsNullOrEmpty(startAfter))
-                throw new ArgumentNullException("startAfter");
+                throw new ArgumentNullException(nameof(startAfter));
             if (String.IsNullOrEmpty(endAt))
-                throw new ArgumentNullException("endAt");
+                throw new ArgumentNullException(nameof(endAt));
 
             if (String.IsNullOrEmpty(fromText)) return null;
 
-            var markerPos = fromText.IndexOf(uniqueMarker);
+            var markerPos = fromText.IndexOf(uniqueMarker, StringComparison.Ordinal);
             if (markerPos == -1) return null;
 
-            var startPos = fromText.IndexOf(startAfter, markerPos);
+            var startPos = fromText.IndexOf(startAfter, markerPos, StringComparison.Ordinal);
             if (startPos == -1) return null;
             startPos += startAfter.Length;
 
-            var endPos = fromText.IndexOf(endAt, startPos);
+            var endPos = fromText.IndexOf(endAt, startPos, StringComparison.Ordinal);
             if (endPos == -1) endPos = fromText.Length;
 
             return fromText.Substring(startPos, endPos - startPos);
@@ -881,7 +889,7 @@ namespace ServiceStack
         {
             if (url == null)
             {
-                throw new ArgumentNullException("url");
+                throw new ArgumentNullException(nameof(url));
             }
             return HttpRegex.Replace(url.Trim(), "https://");
         }
@@ -913,8 +921,9 @@ namespace ServiceStack
         {
             int pos;
             // Avoid a possible infinite loop
-            if (needle == replacement) return haystack;
-            while ((pos = haystack.IndexOf(needle, StringComparison.Ordinal)) > 0)
+            if (needle == replacement) 
+                return haystack;
+            while ((pos = haystack.IndexOf(needle, StringComparison.Ordinal)) >= 0)
             {
                 haystack = haystack.Substring(0, pos)
                     + replacement
@@ -1153,11 +1162,26 @@ namespace ServiceStack
             var to = new Dictionary<string, string>();
             if (text == null) return to;
 
-            foreach (var parts in text.ReadLines().Select(line => line.SplitOnFirst(delimiter)))
+            foreach (var parts in text.ReadLines().Select(line => line.Trim().SplitOnFirst(delimiter)))
             {
                 var key = parts[0].Trim();
                 if (key.Length == 0 || key.StartsWith("#")) continue;
                 to[key] = parts.Length == 2 ? parts[1].Trim() : null;
+            }
+
+            return to;
+        }
+
+        public static List<KeyValuePair<string,string>> ParseAsKeyValues(this string text, string delimiter=" ")
+        {
+            var to = new List<KeyValuePair<string,string>>();
+            if (text == null) return to;
+
+            foreach (var parts in text.ReadLines().Select(line => line.Trim().SplitOnFirst(delimiter)))
+            {
+                var key = parts[0].Trim();
+                if (key.Length == 0 || key.StartsWith("#")) continue;
+                to.Add(new KeyValuePair<string, string>(key, parts.Length == 2 ? parts[1].Trim() : null));
             }
 
             return to;

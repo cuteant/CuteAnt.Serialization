@@ -48,8 +48,15 @@ namespace ServiceStack.Text
 
         public abstract byte[] ParseBase64(ReadOnlySpan<char> value);
 
-        public abstract Task WriteAsync(Stream stream, ReadOnlySpan<char> value, CancellationToken token = default);
+        public abstract string ToBase64(ReadOnlyMemory<byte> value);
+
+        public abstract void Write(Stream stream, ReadOnlyMemory<char> value);
+        public abstract void Write(Stream stream, ReadOnlyMemory<byte> value);
+
+        public abstract Task WriteAsync(Stream stream, ReadOnlyMemory<char> value, CancellationToken token = default);
         public abstract Task WriteAsync(Stream stream, ReadOnlyMemory<byte> value, CancellationToken token = default);
+
+        public abstract Task WriteAsync(Stream stream, ReadOnlySpan<char> value, CancellationToken token = default);
 
         public abstract object Deserialize(Stream stream, Type type, DeserializeStringSpanDelegate deserializer);
 

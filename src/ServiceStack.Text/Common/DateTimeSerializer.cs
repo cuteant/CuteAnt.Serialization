@@ -489,6 +489,9 @@ namespace ServiceStack.Text.Common
 
         static readonly char[] TimeZoneChars = new[] { '+', '-' };
 
+        private const string MinDateTimeOffsetWcfValue = "\\/Date(-62135596800000)\\/";
+        private const string MaxDateTimeOffsetWcfValue = "\\/Date(253402300799999)\\/";
+
         /// <summary>
         /// WCF Json format: /Date(unixts+0000)/
         /// </summary>
@@ -496,6 +499,11 @@ namespace ServiceStack.Text.Common
         /// <returns></returns>
         public static DateTimeOffset ParseWcfJsonDateOffset(string wcfJsonDate)
         {
+            if (wcfJsonDate == MinDateTimeOffsetWcfValue)
+                return DateTimeOffset.MinValue;
+            if (wcfJsonDate == MaxDateTimeOffsetWcfValue)
+                return DateTimeOffset.MaxValue;
+
             if (wcfJsonDate[0] == '\\')
             {
                 wcfJsonDate = wcfJsonDate.Substring(1);
@@ -604,7 +612,7 @@ namespace ServiceStack.Text.Common
         public static void WriteWcfJsonDate(TextWriter writer, DateTime dateTime)
         {
             var config = JsConfig.GetConfig();
-            
+
             dateTime = dateTime.UseConfigSpecifiedSetting();
             switch (config.DateHandler)
             {

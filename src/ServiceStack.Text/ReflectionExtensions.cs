@@ -598,6 +598,20 @@ namespace ServiceStack
                 "IgnoreDataMemberAttribute",
                 "JsonIgnoreAttribute"
             };
+
+            try
+            {
+                JsConfig<Type>.SerializeFn = x => x?.ToString();
+                JsConfig<MethodInfo>.SerializeFn = x => x?.ToString();
+                JsConfig<PropertyInfo>.SerializeFn = x => x?.ToString();
+                JsConfig<FieldInfo>.SerializeFn = x => x?.ToString();
+                JsConfig<MemberInfo>.SerializeFn = x => x?.ToString();
+                JsConfig<ParameterInfo>.SerializeFn = x => x?.ToString();
+            }
+            catch (Exception e)
+            {
+                Tracer.Instance.WriteError("ReflectionExtensions JsConfig<Type>", e);
+            }
         }
 
         public static PropertyInfo[] GetSerializableProperties(this Type type)

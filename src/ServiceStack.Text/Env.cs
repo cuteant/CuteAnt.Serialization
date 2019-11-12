@@ -14,13 +14,14 @@ namespace ServiceStack.Text
             if (PclExport.Instance == null)
                 throw new ArgumentException("PclExport.Instance needs to be initialized");
 
-#if NETSTANDARD || NETCOREAPP
+#if NETSTANDARD
             IsNetStandard = true;
             try
             {
                 IsLinux = System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Linux);
                 IsWindows = System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Windows);
                 IsOSX  = System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.OSX);
+                IsNetCore3 = System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription.StartsWith(".NET Core 3");
                 
                 var fxDesc = System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription;
                 IsMono = fxDesc.Contains("Mono");
@@ -30,7 +31,7 @@ namespace ServiceStack.Text
             IsUnix = IsOSX || IsLinux;
             HasMultiplePlatformTargets = true;
             IsUWP = IsRunningAsUwp();
-#elif DESKTOPCLR
+#elif NET45
             IsNetFramework = true;
             switch (Environment.OSVersion.Platform)
             {
@@ -60,10 +61,15 @@ namespace ServiceStack.Text
             SupportsDynamic = true;
 #endif
 
-#if NETCOREAPP
+#if NETCORE2_1
             IsNetStandard = false;
             IsNetCore = true;
+            IsNetCore21 = true;
             SupportsDynamic = true;
+#endif
+
+#if NETSTANDARD2_0
+            IsNetStandard20 = true;
 #endif
 
             if (!IsUWP)
@@ -90,21 +96,21 @@ namespace ServiceStack.Text
                 ReflectionOptimizer.Instance = ExpressionReflectionOptimizer.Provider;
             }
 
-            ServerUserAgent = "ServiceStack/" +
-                ServiceStackVersion + " "
+            VersionString = ServiceStackVersion.ToString(CultureInfo.InvariantCulture);
+
+            ServerUserAgent = "ServiceStack/" 
+                + VersionString + " "
                 + PclExport.Instance.PlatformName
                 + (IsMono ? "/Mono" : "")
                 + (IsLinux ? "/Linux" : IsOSX ? "/OSX" : IsUnix ? "/Unix" : IsWindows ? "/Windows" : "/UnknownOS")
                 + (IsIOS ? "/iOS" : IsAndroid ? "/Android" : IsUWP ? "/UWP" : "");
 
-            VersionString = ServiceStackVersion.ToString(CultureInfo.InvariantCulture);
-
-            __releaseDate = new DateTime(2018,12,16);
+            __releaseDate = new DateTime(2001,01,01);
         }
 
         public static string VersionString { get; set; }
 
-        public static decimal ServiceStackVersion = 5.41m;
+        public static decimal ServiceStackVersion = 5.7m;
 
         public static bool IsLinux { get; set; }
 
@@ -126,9 +132,14 @@ namespace ServiceStack.Text
 
         public static bool IsNetStandard { get; set; }
 
+        public static bool IsNetCore21 { get; set; }
+        public static bool IsNetStandard20 { get; set; }
+
         public static bool IsNetFramework { get; set; }
 
         public static bool IsNetCore { get; set; }
+        
+        public static bool IsNetCore3 { get; set; }
 
         public static bool SupportsExpressions { get; private set; }
 
@@ -200,7 +211,7 @@ namespace ServiceStack.Text
             set => referenceAssemblyPath = value;
         }
 
-#if NETSTANDARD || NETCOREAPP
+#if NETSTANDARD
         private static bool IsRunningAsUwp()
         {
             try
@@ -285,7 +296,7 @@ namespace ServiceStack.Text
 
         [System.Runtime.InteropServices.DllImport("kernel32.dll", ExactSpelling = true)]
         private static extern int GetCurrentApplicationUserModelId(ref uint applicationUserModelIdLength, byte[] applicationUserModelId);
-#endif
-
+ #endif
+        
     }
 }

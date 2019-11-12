@@ -2,6 +2,7 @@
 //License: https://raw.github.com/ServiceStack/ServiceStack/master/license.txt
 
 using System;
+using System.Buffers.Text;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 using CuteAnt.IO;
 using CuteAnt.Pool;
 using ServiceStack.Text;
+using ServiceStack.Text.Pools;
 
 namespace ServiceStack
 {
@@ -60,13 +62,9 @@ namespace ServiceStack
         public const int DefaultBufferSize = 8 * 1024;
 
         /// <summary>
-        /// Reads the given stream up to the end, returning the data as a byte
-        /// array.
+        /// Reads the given stream up to the end, returning the data as a byte array.
         /// </summary>
-        public static byte[] ReadFully(this Stream input)
-        {
-            return ReadFully(input, DefaultBufferSize);
-        }
+        public static byte[] ReadFully(this Stream input) => ReadFully(input, DefaultBufferSize);
 
         /// <summary>
         /// Reads the given stream up to the end, returning the data as a byte
@@ -77,7 +75,15 @@ namespace ServiceStack
             if (bufferSize < 1)
                 throw new ArgumentOutOfRangeException(nameof(bufferSize));
 
-            return ReadFully(input, new byte[bufferSize]);
+            byte[] buffer = BufferPool.GetBuffer(bufferSize);
+            try
+            {
+                return ReadFully(input, buffer);
+            }
+            finally
+            {
+                BufferPool.ReleaseBufferToPool(ref buffer);
+            }
         }
 
         /// <summary>
@@ -110,6 +116,44 @@ namespace ServiceStack
                 // Okay, make a copy that's the right size
                 return tempStream.ToArray();
             }
+        }
+
+        /// <summary>
+        /// Reads the given stream up to the end, returning the MemoryStream Buffer as ReadOnlyMemory&lt;byte&gt;.
+        /// </summary>
+        public static ReadOnlyMemory<byte> ReadFullyAsMemory(this Stream input) =>
+            ReadFullyAsMemory(input, DefaultBufferSize);
+
+        /// <summary>
+        /// Reads the given stream up to the end, returning the MemoryStream Buffer as ReadOnlyMemory&lt;byte&gt;.
+        /// </summary>
+        public static ReadOnlyMemory<byte> ReadFullyAsMemory(this Stream input, int bufferSize)
+        {
+            byte[] buffer = BufferPool.GetBuffer(bufferSize);
+            try
+            {
+                return ReadFullyAsMemory(input, buffer);
+            }
+            finally
+            {
+                BufferPool.ReleaseBufferToPool(ref buffer);
+            }
+        }
+
+        public static ReadOnlyMemory<byte> ReadFullyAsMemory(this Stream input, byte[] buffer)
+        {
+            if (buffer == null)
+                throw new ArgumentNullException(nameof(buffer));
+
+            if (input == null)
+                throw new ArgumentNullException(nameof(input));
+
+            if (buffer.Length == 0)
+                throw new ArgumentException("Buffer has length of 0");
+
+            var ms = new MemoryStream();
+            CopyTo(input, ms, buffer);
+            return ms.GetBufferAsMemory();
         }
 
         /// <summary>
@@ -274,7 +318,8 @@ namespace ServiceStack
             MemoryProvider.Instance.WriteAsync(stream, value, token);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Task WriteAsync(this Stream stream, byte[] bytes, CancellationToken token = default) => stream.WriteAsync(bytes, 0, bytes.Length, token);
+        public static Task WriteAsync(this Stream stream, byte[] bytes, CancellationToken token = default) =>
+            MemoryProvider.Instance.WriteAsync(stream, bytes, token);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task CopyToAsync(this Stream input, Stream output, CancellationToken token = default) => input.CopyToAsync(output, AsyncBufferSize, token);

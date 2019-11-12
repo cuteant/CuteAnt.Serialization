@@ -801,7 +801,7 @@ namespace ServiceStack
             {
                 using (var req = PclExport.Instance.GetRequestStream(webReq))
                 {
-                    req.CopyTo(requestBody);
+                    requestBody.CopyTo(req);
                 }
             }
 
@@ -839,7 +839,7 @@ namespace ServiceStack
             {
                 using (var req = PclExport.Instance.GetRequestStream(webReq))
                 {
-                    await req.CopyToAsync(requestBody);
+                    await requestBody.CopyToAsync(req);
                 }
             }
 
@@ -1240,7 +1240,11 @@ namespace ServiceStack
         public const string MarkdownText = "text/markdown";
         public const string MsgPack = "application/x-msgpack";
         public const string Wire = "application/x-wire";
+        public const string Compressed = "application/x-compressed";
         public const string NetSerializer = "application/x-netserializer";
+        public const string Excel = "application/excel";
+        public const string MsWord = "application/msword";
+        public const string Cert = "application/x-x509-ca-cert";
 
         public const string ImagePng = "image/png";
         public const string ImageGif = "image/gif";
@@ -1265,15 +1269,124 @@ namespace ServiceStack
 
             throw new NotSupportedException("Unknown mimeType: " + mimeType);
         }
+        
+        //lowercases and trims left part of content-type prior ';'
+        public static string GetRealContentType(string contentType)
+        {
+            if (contentType == null)
+                return null;
+
+            int start = -1, end = -1;
+
+            for(int i=0; i < contentType.Length; i++)
+            {
+                if (!char.IsWhiteSpace(contentType[i]))
+                {
+                    if (contentType[i] == ';')
+                        break;
+                    if (start == -1)
+                    {
+                        start = i;
+                    }
+                    end = i;
+                }
+            }
+
+            return start != -1 
+                    ? contentType.Substring(start, end - start + 1).ToLowerInvariant()
+                    :  null;
+        }
+
+        //Compares two string from start to ';' char, case-insensitive,
+        //ignoring (trimming) spaces at start and end
+        public static bool MatchesContentType(string contentType, string matchesContentType)
+        {
+            if (contentType == null || matchesContentType == null)
+                return false;
+            
+            int start = -1, matchStart = -1, matchEnd = -1;
+
+            for (var i=0; i < contentType.Length; i++)
+            {
+                if (char.IsWhiteSpace(contentType[i])) 
+                    continue;
+                start = i;
+                break;
+            }
+
+            for (var i=0; i < matchesContentType.Length; i++)
+            {
+                if (char.IsWhiteSpace(matchesContentType[i])) 
+                    continue;
+                if (matchesContentType[i] == ';')
+                    break;
+                if (matchStart == -1)
+                    matchStart = i;
+                matchEnd = i;
+            }
+            
+            return start != -1 && matchStart != -1 && matchEnd != -1
+                  && string.Compare(contentType, start,
+                        matchesContentType, matchStart, matchEnd - matchStart + 1,
+                        StringComparison.OrdinalIgnoreCase) == 0;
+        }
+        
+        public static Func<string, bool?> IsBinaryFilter { get; set; }
+
+        public static bool IsBinary(string contentType)
+        {
+            var userFilter = IsBinaryFilter?.Invoke(contentType);
+            if (userFilter != null)
+                return userFilter.Value;
+            
+            var realContentType = GetRealContentType(contentType);
+            switch (realContentType)
+            {
+                case ProtoBuf:
+                case MsgPack:
+                case Binary:
+                case Bson:
+                case Wire:
+                case Cert:
+                case Excel:
+                case MsWord:
+                case Compressed:
+                case WebAssembly:
+                    return true;
+            }
+
+            // Text format exceptions to below heuristics
+            switch (realContentType)
+            {
+                case ImageSvg:
+                    return false;
+            }
+
+            var primaryType = realContentType.LeftPart('/');
+            var secondaryType = realContentType.RightPart('/');
+            switch (primaryType)
+            {
+                case "image":
+                case "audio":
+                case "video":
+                    return true;
+            }
+
+            if (secondaryType.StartsWith("pkc")
+                || secondaryType.StartsWith("x-pkc")
+                || secondaryType.StartsWith("font")
+                || secondaryType.StartsWith("vnd.ms-"))
+                return true;
+
+            return false;
+        }
 
         public static string GetMimeType(string fileNameOrExt)
         {
             if (string.IsNullOrEmpty(fileNameOrExt))
                 throw new ArgumentNullException(nameof(fileNameOrExt));
 
-            var parts = fileNameOrExt.Split('.');
-            var fileExt = parts[parts.Length - 1];
-
+            var fileExt = fileNameOrExt.LastRightPart('.');
             if (ExtensionMimeTypes.TryGetValue(fileExt, out var mimeType))
             {
                 return mimeType;
@@ -1296,7 +1409,10 @@ namespace ServiceStack
                     return "image/tiff";
 
                 case "svg":
-                    return "image/svg+xml";
+                    return ImageSvg;
+                
+                case "ico":
+                    return "image/x-icon";
 
                 case "htm":
                 case "html":
@@ -1313,21 +1429,33 @@ namespace ServiceStack
                     return "text/jsx";
 
                 case "csv":
+                    return Csv;
                 case "css":
+                    return Css;
+                    
                 case "sgml":
                     return "text/" + fileExt;
 
                 case "txt":
                     return "text/plain";
 
-                case "wav":
-                    return "audio/wav";
-
                 case "mp3":
                     return "audio/mpeg3";
 
+                case "au":
+                case "snd":
+                    return "audio/basic";
+                
+                case "aac":
+                case "ac3":
+                case "aiff":
+                case "m4a":
+                case "m4b":
+                case "m4p":
                 case "mid":
-                    return "audio/midi";
+                case "midi":
+                case "wav":
+                    return "audio/" + fileExt;
 
                 case "qt":
                 case "mov":
@@ -1336,14 +1464,17 @@ namespace ServiceStack
                 case "mpg":
                     return "video/mpeg";
 
-                case "avi":
-                case "mp4":
-                case "ogg":
-                case "webm":
-                    return "video/" + fileExt;
-
                 case "ogv":
                     return "video/ogg";
+
+                case "3gpp":
+                case "avi":
+                case "dv":
+                case "divx":
+                case "ogg":
+                case "mp4":
+                case "webm":
+                    return "video/" + fileExt;
 
                 case "rtf":
                     return "application/" + fileExt;
@@ -1351,7 +1482,7 @@ namespace ServiceStack
                 case "xls":
                 case "xlt":
                 case "xla":
-                    return "application/x-excel";
+                    return Excel;
 
                 case "xlsx":
                     return "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
@@ -1360,7 +1491,7 @@ namespace ServiceStack
 
                 case "doc":
                 case "dot":
-                    return "application/msword";
+                    return MsWord;
 
                 case "docx":
                     return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
@@ -1382,10 +1513,36 @@ namespace ServiceStack
 
                 case "mdb":
                     return "application/vnd.ms-access";
+                
+                case "cer":
+                case "crt":
+                case "der":
+                    return Cert;
 
+                case "p10":
+                    return "application/pkcs10";
+                case "p12":
+                    return "application/x-pkcs12";
+                case "p7b":
+                case "spc":
+                    return "application/x-pkcs7-certificates";
+                case "p7c":
+                case "p7m":
+                    return "application/pkcs7-mime";
+                case "p7r":
+                    return "application/x-pkcs7-certreqresp";
+                case "p7s":
+                    return "application/pkcs7-signature";
+                case "sst":
+                    return "application/vnd.ms-pki.certstore";
+                
                 case "gz":
                 case "tgz":
-                    return "application/x-compressed";
+                case "zip":
+                case "rar":
+                case "lzh":
+                case "z":
+                    return Compressed;
 
                 case "eot":
                     return "application/vnd.ms-fontobject";
@@ -1398,11 +1555,47 @@ namespace ServiceStack
                 case "woff2":
                     return "application/font-woff2";
                     
+                case "aaf":
+                case "aca":
+                case "asd":
+                case "bin":
+                case "cab":
+                case "chm":
+                case "class":
+                case "cur":
+                case "db":
+                case "dat":
+                case "deploy":
                 case "dll":
-                    return "application/octet-stream";
+                case "dsp":
+                case "exe":
+                case "fla":
+                case "ics":
+                case "inf":
+                case "java":
+                case "mix":
+                case "msi":
+                case "mso":
+                case "obj":
+                case "ocx":
+                case "prm":
+                case "prx":
+                case "psd":
+                case "psp":
+                case "qxd":
+                case "sea":
+                case "snp":
+                case "so":
+                case "sqlite":
+                case "toc":
+                case "u32":
+                case "xmp":
+                case "xsn":
+                case "xtp":
+                    return Binary;
                     
                 case "wasm":
-                    return "application/wasm";
+                    return WebAssembly;
 
                 default:
                     return "application/" + fileExt;
@@ -1436,6 +1629,8 @@ namespace ServiceStack
 
         public const string XStatus = "X-Status";
 
+        public const string XPoweredBy = "X-Powered-By";
+        
         public const string Referer = "Referer";
 
         public const string CacheControl = "Cache-Control";

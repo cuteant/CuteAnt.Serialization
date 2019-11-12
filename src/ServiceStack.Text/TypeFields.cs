@@ -5,12 +5,6 @@ using System.Threading;
 using CuteAnt.Reflection;
 using ServiceStack.Text;
 
-using System.Linq.Expressions;
-
-//#if DESKTOPCLR || NETSTANDARD
-using System.Reflection.Emit;
-//#endif
-
 namespace ServiceStack
 {
     public class FieldAccessor

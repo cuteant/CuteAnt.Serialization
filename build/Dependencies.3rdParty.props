@@ -10,7 +10,7 @@
     <MoreLinqPackageVersion>3.1.1</MoreLinqPackageVersion>
     <NCrontabSignedPackageVersion>3.3.2</NCrontabSignedPackageVersion>
     <OptionalPackageVersion>4.0.0</OptionalPackageVersion>
-    <SystemLinqDynamicCorePackageVersion>1.0.15</SystemLinqDynamicCorePackageVersion>
+    <SystemLinqDynamicCorePackageVersion>1.0.19</SystemLinqDynamicCorePackageVersion>
     <SuperpowerPackageVersion>1.0.2</SuperpowerPackageVersion>
 
     <AutoMapperPackageVersion>9.0.0</AutoMapperPackageVersion>
@@ -47,22 +47,20 @@
     <ExcelNumberFormatPackageVersion>1.0.7</ExcelNumberFormatPackageVersion>
     <RemotionLinqPackageVersion>2.2.0</RemotionLinqPackageVersion>
     <ConsulPackageVersion>0.7.2.6</ConsulPackageVersion>
-    <DapperPackageVersion>2.0.4</DapperPackageVersion>
-    <DapperStrongNamePackageVersion>2.0.4</DapperStrongNamePackageVersion>
+    <DapperStrongNamePackageVersion>2.0.30</DapperStrongNamePackageVersion>
     <MicrosoftSqlServerTypesPackageVersion>14.0.1016.290</MicrosoftSqlServerTypesPackageVersion>
     <MongoDBBsonStrongNamePackageVersion>2.8.1</MongoDBBsonStrongNamePackageVersion>
     <MongoDBDriverCoreStrongNamePackageVersion>2.8.1</MongoDBDriverCoreStrongNamePackageVersion>
     <MongoDBDriverStrongNamePackageVersion>2.8.1</MongoDBDriverStrongNamePackageVersion>
     <MongoDBDriverGridFSStrongNamePackageVersion>2.8.1</MongoDBDriverGridFSStrongNamePackageVersion>
     <mongocsharpdriverStrongNamePackageVersion>2.8.1</mongocsharpdriverStrongNamePackageVersion>
-    <MySqlDataPackageVersion>8.0.16</MySqlDataPackageVersion>
-    <MySqlConnectorPackageVersion>0.57.0-rc1</MySqlConnectorPackageVersion>
-    <NpgsqlPackageVersion>4.0.10</NpgsqlPackageVersion>
+    <MySqlConnectorPackageVersion>0.61.0</MySqlConnectorPackageVersion>
+    <NpgsqlPackageVersion>4.1.1</NpgsqlPackageVersion>
     <OracleManagedDataAccessPackageVersion>18.6.0</OracleManagedDataAccessPackageVersion>
     <OracleManagedDataAccessCorePackageVersion>2.18.6</OracleManagedDataAccessCorePackageVersion>
     <StackExchangeRedisPackageVersion>2.0.601</StackExchangeRedisPackageVersion>
     <StackExchangeRedisStrongNamePackageVersion>2.0.601</StackExchangeRedisStrongNamePackageVersion>
-    <SystemDataSQLiteCorePackageVersion>1.0.111</SystemDataSQLiteCorePackageVersion>
+    <SystemDataSQLiteCorePackageVersion>1.0.112</SystemDataSQLiteCorePackageVersion>
 
     <!-- Hosting related packages -->
     <TopshelfPackageVersion>4.2.1</TopshelfPackageVersion>
@@ -73,19 +71,19 @@
     <!-- Logging related packages -->
     <NLogPackageVersion>4.6.7</NLogPackageVersion>
     <NLogDevPackageVersion>4.6.7</NLogDevPackageVersion>
-    <NLogExtensionsLoggingPackageVersion>1.5.4</NLogExtensionsLoggingPackageVersion>
-    <NLogWebAspNetCorePackageVersion>4.8.5</NLogWebAspNetCorePackageVersion>
+    <NLogExtensionsLoggingPackageVersion>1.6.1</NLogExtensionsLoggingPackageVersion>
+    <NLogWebAspNetCorePackageVersion>4.9.0</NLogWebAspNetCorePackageVersion>
 
-    <SerilogPackageVersion>2.8.0</SerilogPackageVersion>
-    <SerilogDevPackageVersion>2.9.0-dev-01124</SerilogDevPackageVersion>
-    <SerilogAspNetCorePackageVersion>3.0.0</SerilogAspNetCorePackageVersion>
+    <SerilogPackageVersion>2.9.0</SerilogPackageVersion>
+    <SerilogDevPackageVersion>2.9.0</SerilogDevPackageVersion>
+    <SerilogAspNetCorePackageVersion>3.1.0</SerilogAspNetCorePackageVersion>
     <SerilogExtensionsLoggingPackageVersion>3.0.1</SerilogExtensionsLoggingPackageVersion>
     <SerilogExtensionsHostingPackageVersion>3.0.0</SerilogExtensionsHostingPackageVersion>
     <SerilogSinksConsolePackageVersion>3.1.2-dev-00824</SerilogSinksConsolePackageVersion>
     <SerilogExtensionsLoggingFilePackageVersion>2.0.0-dev-00032</SerilogExtensionsLoggingFilePackageVersion>
-    <SerilogFormattingCompactPackageVersion>1.0.1-dev-00925</SerilogFormattingCompactPackageVersion>
+    <SerilogFormattingCompactPackageVersion>1.1.0</SerilogFormattingCompactPackageVersion>
     <SerilogSinksAsyncPackageVersion>1.4.0</SerilogSinksAsyncPackageVersion>
-    <SerilogSinksFilePackageVersion>4.1.0-dev-00850</SerilogSinksFilePackageVersion>
+    <SerilogSinksFilePackageVersion>4.1.0</SerilogSinksFilePackageVersion>
     <SerilogSinksRollingFilePackageVersion>3.3.1-dev-00771</SerilogSinksRollingFilePackageVersion>
 
     <SerilogSettingsAppSettingsPackageVersion>2.2.2</SerilogSettingsAppSettingsPackageVersion>
@@ -130,8 +128,8 @@
 
     <LibuvPackageVersion>1.10.0</LibuvPackageVersion>
 
-    <MimeKitPackageVersion>2.3.1.6</MimeKitPackageVersion>
-    <MailKitPackageVersion>2.3.1.6</MailKitPackageVersion>
+    <MimeKitPackageVersion>2.3.2</MimeKitPackageVersion>
+    <MailKitPackageVersion>2.3.2</MailKitPackageVersion>
 
     <!-- Serialization related packages -->
     <GoogleApiCommonProtosPackageVersion>1.6.0</GoogleApiCommonProtosPackageVersion>

@@ -5,12 +5,6 @@ using System.Threading;
 using CuteAnt.Reflection;
 using ServiceStack.Text;
 
-using System.Linq.Expressions;
-
-//#if DESKTOPCLR || NETSTANDARD
-using System.Reflection.Emit;
-//#endif
-
 namespace ServiceStack
 {
     public class PropertyAccessor
@@ -69,7 +63,7 @@ namespace ServiceStack
     {
         static Dictionary<Type, TypeProperties> CacheMap = new Dictionary<Type, TypeProperties>();
 
-        public static Type FactoryType = typeof(TypeProperties<>);
+        public static readonly Type FactoryType = typeof(TypeProperties<>);
 
         public static TypeProperties Get(Type type)
         {
