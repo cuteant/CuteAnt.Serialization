@@ -216,6 +216,7 @@ namespace Hyperion.Extensions
             ThrowHelper.ThrowNotSupportedException(); return default;
         }
 
+        private static readonly string CoreAssemblyQualifiedName = 1.GetType().AssemblyQualifiedName;
         private static readonly string CoreAssemblyName = GetCoreAssemblyName();
 
         private static readonly Regex cleanAssemblyVersionRegex = new Regex(
@@ -224,8 +225,7 @@ namespace Hyperion.Extensions
 
         private static string GetCoreAssemblyName()
         {
-            var name = 1.GetType().AssemblyQualifiedName;
-            var part = name.Substring(name.IndexOf(", Version", StringComparison.Ordinal));
+            var part = CoreAssemblyQualifiedName.Substring(CoreAssemblyQualifiedName.IndexOf(", Version", StringComparison.Ordinal));
             return part;
         }
 
@@ -237,9 +237,16 @@ namespace Hyperion.Extensions
             return name;
         }
 
-        public static string ToQualifiedAssemblyName(string shortName)
+        public static string ToQualifiedAssemblyName(string shortName, bool ignoreAssemblyVersion)
         {
+            // Strip out assembly version, if specified
+            if (ignoreAssemblyVersion)
+            {
+                shortName = cleanAssemblyVersionRegex.Replace(shortName, string.Empty);
+            }
+
             var res = shortName.Replace(",%core%", CoreAssemblyName);
+
             return res;
         }
 

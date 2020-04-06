@@ -2,85 +2,85 @@
   <!-- Versioning properties -->
   <PropertyGroup>
     <AssemblyVersion>0.9.0.0</AssemblyVersion>
-    <VersionPrefix Condition=" '$(VersionPrefix)'=='' ">0.9.8</VersionPrefix>
+    <VersionPrefix Condition=" '$(VersionPrefix)'=='' ">0.9.15</VersionPrefix>
     <VersionSuffix Condition=" '$(VersionSuffix)'=='' ">rtm</VersionSuffix>
-    <VersionDateSuffix Condition=" '$(VersionDateSuffix)'=='' ">190618-01</VersionDateSuffix>
+    <VersionDateSuffix Condition=" '$(VersionDateSuffix)'=='' ">200401-01</VersionDateSuffix>
     <VersionSuffix Condition=" '$(VersionDateSuffix)'!='' ">$(VersionSuffix)-$(VersionDateSuffix)</VersionSuffix>
   </PropertyGroup>
   <Choose>
     <When Condition=" '$(TargetFramework)' == 'net40' ">
       <PropertyGroup>
-        <FileVersion>0.9.8.0</FileVersion>
+        <FileVersion>0.9.15.0</FileVersion>
       </PropertyGroup>
     </When>
     <When Condition=" '$(TargetFramework)' == 'net45' ">
       <PropertyGroup>
-        <FileVersion>0.9.8.1000</FileVersion>
+        <FileVersion>0.9.15.1000</FileVersion>
       </PropertyGroup>
     </When>
     <When Condition=" '$(TargetFramework)' == 'net451' ">
       <PropertyGroup>
-        <FileVersion>0.9.8.1100</FileVersion>
+        <FileVersion>0.9.15.1100</FileVersion>
       </PropertyGroup>
     </When>
     <When Condition=" '$(TargetFramework)' == 'net452' ">
       <PropertyGroup>
-        <FileVersion>0.9.8.1200</FileVersion>
+        <FileVersion>0.9.15.1200</FileVersion>
       </PropertyGroup>
     </When>
     <When Condition=" '$(TargetFramework)' == 'net47' ">
       <PropertyGroup>
-        <FileVersion>0.9.8.2000</FileVersion>
+        <FileVersion>0.9.15.2000</FileVersion>
       </PropertyGroup>
     </When>
     <When Condition=" '$(TargetFramework)' == 'net471' ">
       <PropertyGroup>
-        <FileVersion>0.9.8.2100</FileVersion>
+        <FileVersion>0.9.15.2100</FileVersion>
       </PropertyGroup>
     </When>
     <When Condition=" '$(TargetFramework)' == 'net472' ">
       <PropertyGroup>
-        <FileVersion>0.9.8.2200</FileVersion>
+        <FileVersion>0.9.15.2200</FileVersion>
       </PropertyGroup>
     </When>
     <When Condition=" '$(TargetFramework)' == 'net48' ">
       <PropertyGroup>
-        <FileVersion>0.9.8.2500</FileVersion>
+        <FileVersion>0.9.15.2500</FileVersion>
       </PropertyGroup>
     </When>
     <When Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
       <PropertyGroup>
-        <FileVersion>0.9.8.5000</FileVersion>
+        <FileVersion>0.9.15.5000</FileVersion>
       </PropertyGroup>
     </When>
     <When Condition=" '$(TargetFramework)' == 'netstandard2.1' ">
       <PropertyGroup>
-        <FileVersion>0.9.8.5100</FileVersion>
+        <FileVersion>0.9.15.5100</FileVersion>
       </PropertyGroup>
     </When>
     <When Condition=" '$(TargetFramework)' == 'netcoreapp2.0' ">
       <PropertyGroup>
-        <FileVersion>0.9.8.6000</FileVersion>
+        <FileVersion>0.9.15.6000</FileVersion>
       </PropertyGroup>
     </When>
     <When Condition=" '$(TargetFramework)' == 'netcoreapp2.1' ">
       <PropertyGroup>
-        <FileVersion>0.9.8.6100</FileVersion>
+        <FileVersion>0.9.15.6100</FileVersion>
       </PropertyGroup>
     </When>
     <When Condition=" '$(TargetFramework)' == 'netcoreapp2.2' ">
       <PropertyGroup>
-        <FileVersion>0.9.8.6200</FileVersion>
+        <FileVersion>0.9.15.6200</FileVersion>
       </PropertyGroup>
     </When>
     <When Condition=" '$(TargetFramework)' == 'netcoreapp3.0' ">
       <PropertyGroup>
-        <FileVersion>0.9.8.6500</FileVersion>
+        <FileVersion>0.9.15.6500</FileVersion>
       </PropertyGroup>
     </When>
     <Otherwise>
       <PropertyGroup>
-        <FileVersion>0.9.8.9000</FileVersion>
+        <FileVersion>0.9.15.9000</FileVersion>
       </PropertyGroup>
     </Otherwise>
   </Choose>

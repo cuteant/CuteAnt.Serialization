@@ -190,7 +190,7 @@ namespace Hyperion.Tests
         Assert.Equal(expr.NodeType, deserialized.NodeType);
         Assert.Equal(expr.Type, deserialized.Type);
         Assert.Equal(expr.Indexer, deserialized.Indexer);
-        Assert.Equal(1, deserialized.Arguments.Count);
+        Assert.Single(deserialized.Arguments);
         Assert.Equal(expr.Arguments[0].ConstantValue(), deserialized.Arguments[0].ConstantValue());
         var actual = (int[])deserialized.Object.ConstantValue();
         Assert.Equal(value[0], actual[0]);
@@ -307,7 +307,7 @@ namespace Hyperion.Tests
         Assert.Equal(expr.NodeType, deserialized.NodeType);
         Assert.Equal(expr.Method, deserialized.Method);
         Assert.Equal(expr.Object.ConstantValue(), deserialized.Object.ConstantValue());
-        Assert.Equal(1, deserialized.Arguments.Count);
+        Assert.Single(deserialized.Arguments);
         Assert.Equal(expr.Arguments[0].ConstantValue(), deserialized.Arguments[0].ConstantValue());
       }
     }
@@ -531,7 +531,7 @@ namespace Hyperion.Tests
         stream.Position = 0;
         var deserialized = serializer.Deserialize<ElementInit>(stream);
         Assert.Equal(expr.AddMethod, deserialized.AddMethod);
-        Assert.Equal(1, deserialized.Arguments.Count);
+        Assert.Single(deserialized.Arguments);
         Assert.Equal(expr.Arguments[0].ConstantValue(), deserialized.Arguments[0].ConstantValue());
       }
     }

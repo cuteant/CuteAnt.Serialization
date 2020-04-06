@@ -92,7 +92,7 @@ namespace Hyperion.SerializerFactories
                 {
                     session.TrackSerializedObject(exception);
                 }
-                var fields = s_filedCache.GetOrAdd(type,s_getFieldsFunc);
+                var fields = s_filedCache.GetOrAdd(type, s_getFieldsFunc);
                 foreach (var (field, getter, setter) in fields)
                 {
                     var fieldType = field.FieldType;
